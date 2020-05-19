@@ -1,0 +1,147 @@
+
+.mainContentMargins, .screenBorder-Inset, .screenBorder-Outset, .screenBackground, .emailParent {
+  --screenBorder-Offset: 0.5cm;
+
+  --inset-bottom: 1cm;
+  --inset-right: 30vw;
+  --inset-top: 0.5cm;
+  --inset-left: 0cm;
+}
+
+div {
+  --light-grey: #dddddd;
+  --middle-grey: #b1b1b1;
+  --dark-grey: #474747;
+  --content-background: #ffffff;
+  --window-label: #8383dc;
+}
+
+
+
+@media all and (max-width: 100vh) {
+  .mainContentMargins, .screenBorder-Inset, .screenBorder-Outset, .screenBackground, .emailParent {
+    --inset-bottom: 1cm;
+    --inset-right: 0cm;
+    --inset-top: 0.5cm;
+    --inset-left: 0cm;
+  }
+}
+
+
+.emailParent {
+  --base-padding: 1cm;
+  padding:
+  calc(var(--base-padding) + var(--inset-top))
+  calc(var(--base-padding) + var(--inset-right))
+  calc(var(--base-padding) + var(--inset-bottom))
+  calc(var(--base-padding) + var(--inset-left));
+  /* padding: 1cm; */
+  height: 100%;
+}
+
+
+/* The grey area outside the boundaries of the screen */
+.mainContentMargins {
+  z-index: 2;
+  pointer-events: none;
+
+  position: fixed;
+    top:0cm;
+    left:0cm;
+    bottom:0cm;
+    right:0cm;
+
+  border: 0cm var(--middle-grey) solid;
+  background-color: transparent;
+
+  border-width:
+  calc(var(--screenBorder-Offset) + var(--inset-top))
+  calc(var(--screenBorder-Offset) + var(--inset-right))
+  calc(var(--screenBorder-Offset) + var(--inset-bottom))
+  calc(var(--screenBorder-Offset) + var(--inset-left));
+}
+
+.screenBorder-Outset, .screenBorder-Plateau, .screenBorder-Inset {
+  position: relative;
+  background-color: transparent;
+}
+
+
+
+.outsetBorders, .screenBorder-Outset {
+  --outset-width: 3px;
+  border-width: var(--outset-width);
+  border-style: solid;
+
+  border-left-color: var(--light-grey);
+  border-right-color: var(--dark-grey);
+  border-top-color: var(--light-grey);
+  border-bottom-color: var(--dark-grey);
+}
+/* The outermost border in the raised ridge outline */
+    .screenBorder-Outset {
+      --width-height: calc(100% - var(--outset-width) * 2);
+      width: var(--width-height);
+      height: var(--width-height);
+    }
+
+
+.plateautBorders, .screenBorder-Plateau {
+  --plateau-width: 3px;
+  border-width: var(--plateau-width);
+  border-style: solid;
+
+  border-color: var(--middle-grey);
+}
+/* The middle border in the raised ridge outline */
+    .screenBorder-Plateau {
+      --width-height: calc(100% - var(--plateau-width) * 2);
+      width: var(--width-height);
+      height: var(--width-height);
+    }
+
+
+.insetBorders, .screenBorder-Inset {
+  --inset-width: 3px;
+  border-width: var(--inset-width);
+  border-style: solid;
+
+  border-left-color: var(--dark-grey);
+  border-right-color: var(--light-grey);
+  border-top-color: var(--dark-grey);
+  border-bottom-color: var(--light-grey);
+}
+/* The innermost border in the raised ridge outline */
+    .screenBorder-Inset {
+      --width-height: calc(100% - var(--inset-width) * 2);
+      width: var(--width-height);
+      height: var(--width-height);
+    }
+
+.middleGreyBackground {
+  background-color: var(--middle-grey);
+}
+
+.windowLabel {
+  padding: 0.1cm 0.1cm;
+  width: calc(100% - 0.2cm);
+  background-color: var(--window-label);
+}
+
+.screenBackground {
+  position: fixed;
+    top:0cm;
+    left:0cm;
+    bottom:0cm;
+    right:0cm;
+
+  z-index: -10;
+
+  background-color: var(--content-background);
+}
+
+.aboveBorders {
+  padding:0.25cm;
+  position: fixed;
+  z-index: 8;
+}

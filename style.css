@@ -1,0 +1,140 @@
+@import "fonts/w95/stylesheet.css";
+@import "fonts/MicrosoftSansSerif/stylesheet.css";
+
+html {
+  height: 100%;
+}
+
+body{
+  background: #b1b1b1;
+  margin: 0px;
+}
+
+div {
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  /* font-smooth: never; */
+  -webkit-font-smoothing : none;
+
+  font-family: "MicrosoftSansSerif";
+  font-size: 0.4cm;
+
+  /* text-shadow: 0px 0px 2px grey; */
+
+  color: black;
+
+  margin: 0px;
+  padding: 0px;
+
+  /* font-family: serif; */
+}
+
+
+
+
+
+.emailContainer {
+  margin: 0.2cm 0cm;
+  padding: 0.5cm 0cm;
+  width: 100%;
+  border: 1px white solid;
+  border-color: transparent;
+  border-bottom-color: black;
+}
+
+/* ======================================Email Header======================================= */
+
+.emailHeader {
+  margin: 0.4cm 0.2cm;
+  /* margin-right: 10%; */
+}
+.emailHeader:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.emailHeaderText, .emailHeaderImage {
+  --header-text-padding: 0.2cm;
+  --header-text-lines: 2;
+  --header-image-margin-left: 10px;
+  --header-image-size: calc(1em * var(--header-text-lines) + var(--header-text-padding) * 2);
+  --header-text-width: calc(100% - var(--header-image-size) - var(--header-image-margin-left) - var(--header-text-padding) * 2 - 1px);
+}
+
+.emailHeaderText {
+  background: var(--middle-grey);
+  padding: var(--header-text-padding);
+  float: left;
+  height: calc(1em * var(--header-text-lines) + 2px);
+  width: var(--header-text-width);
+  overflow-x: hidden;
+}
+.emailHeaderText p {
+  text-shadow: 1px 0px 0px black;
+}
+
+.emailHeaderImage {
+  float: right;
+  height: var(--header-image-size);
+  margin-left: var(--header-image-margin-left);
+}
+.emailHeaderImage img {
+  height: 100%;
+}
+
+/* ======================================Email Body======================================= */
+
+
+.emailBody {
+  padding: 0.2cm 0cm;
+}
+.emailBody p {
+  /* border-left: 1px solid black; */
+  /* background: #eeeeee; */
+  padding: 0cm 0.3cm;
+}
+
+/* ======================================Attachments Section======================================= */
+
+
+.attachments {
+  padding: 0.1cm;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imgAttachment {
+  position: relative;
+  float: left;
+  height: 2cm;
+  padding: 0.25cm;
+}
+.imgAttachment:hover {
+  opacity: 0.3;
+}
+.imgAttachment img {
+  height: 100%;
+  -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(50%);
+}
+.imgAttachment:hover img {
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+}
+
+.paperClip {
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  right: 0%;
+  bottom: 0%;
+  display: flex;
+}
+.paperClip img {
+
+}

@@ -1,0 +1,103 @@
+
+.screenBorderMargins, .screenBorderInset, .screenBorderOutset, .screenBackground, .emailParent {
+  --screenBorderOffset: 0.5cm;
+
+  --inset-bottom: 1cm;
+  --inset-right: 30vw;
+  --inset-top: 0.5cm;
+  --inset-left: 0cm;
+}
+
+.screenBorderMargins, .screenBorderInset, .screenBorderOutset, .screenBackground {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media all and (max-width: 100vh) {
+  .screenBorderMargins, .screenBorderInset, .screenBorderOutset, .screenBackground, .emailParent {
+    --inset-bottom: 1cm;
+    --inset-right: 0cm;
+    --inset-top: 0.5cm;
+    --inset-left: 0cm;
+  }
+}
+
+
+.emailParent {
+  --base-padding: 1cm;
+  padding:
+  calc(var(--base-padding) + var(--inset-top))
+  calc(var(--base-padding) + var(--inset-right))
+  calc(var(--base-padding) + var(--inset-bottom))
+  calc(var(--base-padding) + var(--inset-left));
+  /* padding: 1cm; */
+  height: 100%;
+}
+
+.screenBorderMargins {
+    top:0cm;
+    left:0cm;
+    bottom:0cm;
+    right:0cm;;
+
+  border: 0cm #b1b1b1 solid;
+  background-color: #eeeeee00;
+
+  border-width:
+  calc(var(--screenBorderOffset) + var(--inset-top))
+  calc(var(--screenBorderOffset) + var(--inset-right))
+  calc(var(--screenBorderOffset) + var(--inset-bottom))
+  calc(var(--screenBorderOffset) + var(--inset-left));
+}
+
+.screenBorderInset {
+    top:calc(var(--inset-top) + var(--screenBorderOffset));
+    left:calc(var(--inset-left) + var(--screenBorderOffset));
+    bottom:calc(var(--inset-bottom) + var(--screenBorderOffset));
+    right:calc(var(--inset-right) + var(--screenBorderOffset));
+
+  border-style: solid;
+  border-width: 3px;
+  background-color: #eeeeee00;
+
+    border-left-color: #474747;
+    border-right-color: #dddddd;
+    border-top-color: #474747;
+    border-bottom-color: #dddddd;
+}
+
+.screenBorderOutset {
+  --a: calc(var(--screenBorderOffset) - 5px);
+
+    top:calc(var(--inset-top) + var(--a));
+    left:calc(var(--inset-left) + var(--a));
+    bottom:calc(var(--inset-bottom) + var(--a));
+    right:calc(var(--inset-right) + var(--a));
+
+  border-style: solid;
+  border-width: 3px;
+  background-color: #eeeeee00;
+
+    border-left-color: #dddddd;
+    border-right-color: #474747;
+    border-top-color: #dddddd;
+    border-bottom-color: #474747;
+}
+
+.screenBackground {
+  top:0cm;
+  left:0cm;
+  bottom:0cm;
+  right:0cm;
+
+  z-index: -2;
+
+  background-color: #ffffff;
+}
+
+.aboveBorders {
+  padding:0.25cm;
+  position: absolute;
+  z-index: 8;
+}

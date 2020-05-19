@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Microsoft Sans Serif';
+    src: url('MicrosoftSansSerif.eot');
+    src: url('MicrosoftSansSerif.eot?#iefix') format('embedded-opentype'),
+        url('MicrosoftSansSerif.woff2') format('woff2'),
+        url('MicrosoftSansSerif.woff') format('woff'),
+        url('MicrosoftSansSerif.ttf') format('truetype'),
+        url('MicrosoftSansSerif.svg#MicrosoftSansSerif') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

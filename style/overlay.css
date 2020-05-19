@@ -1,0 +1,63 @@
+
+
+/* ======================================Link Popup======================================= */
+
+/* from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_overlay */
+.linkPopupParent {
+  /* Altered at runtime */
+  display: none;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  z-index: 10;
+}
+.windowSizer {
+  /* center in parent div */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* --- */
+
+  width: 80vw;
+  height: 80vh;
+
+  padding: 0.1cm 0.1cm;
+}
+
+.imageContainer {
+  height: calc(100% - 1cm);
+  width: calc(100% - 6px);
+}
+.imagePopupImg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.imageContainerText {
+  position: absolute;
+    right: 0px;
+    bottom: 0px;
+
+  padding: 0.25cm;
+
+  border-right-style: none;
+  border-bottom-style: none;
+}
+.imageContainerText p {
+  text-align: right;
+}
+
+.popupBackground {
+  position: fixed;
+    top:0cm;
+    left:0cm;
+    bottom:0cm;
+    right:0cm;
+
+  overflow-x: hidden;
+  background-color: #000000a0;
+}

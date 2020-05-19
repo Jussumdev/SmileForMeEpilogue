@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'w95-8pt';
+    src: url('w95.eot');
+    src: url('w95.eot?#iefix') format('embedded-opentype'),
+        url('w95.woff2') format('woff2'),
+        url('w95.woff') format('woff'),
+        url('w95.ttf') format('truetype'),
+        url('w95.svg#w95') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
