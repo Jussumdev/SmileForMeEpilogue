@@ -1,28 +1,37 @@
 @import "fonts/w95/stylesheet.css";
 @import "fonts/MicrosoftSansSerif/stylesheet.css";
+@import "fonts/mini-wakuwaku/stylesheet.css";
+
 
 html {
   height: 100%;
 }
 
 body{
-  background: #b1b1b1;
+  background: var(--windows-background);
   margin: 0px;
 }
 
 div {
   margin: 0px;
   padding: 0px;
+  /* border-radius: 5px; */
+
+
+  --shad-right: 0.075cm;
+  --shad-down: 0.125cm;
+  --shad-color: #11111140;
 }
 
 p {
   /* font-smooth: never; */
   -webkit-font-smoothing : none;
 
+  /* font-family: "mini-wakuwakuregular"; */
   font-family: "MicrosoftSansSerif";
   font-size: 0.4cm;
 
-  /* text-shadow: 0px 0px 2px grey; */
+  text-shadow: 0px 0px 0.2em #633a3a;
 
   color: black;
 
@@ -35,10 +44,23 @@ p {
 
 
 
+/* ==================================Hide all scrollbars============================= */
+
+/* from https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar, div::-webkit-scrollbar {
+  /* display: none; */
+}
+/* Hide scrollbar for IE and Edge */
+html, div {
+  /* -ms-overflow-style: none; */
+}
+
+/* ======================================Email Container======================================= */
 
 .emailContainer {
   margin: 0.2cm 0cm;
-  padding: 0.5cm 0cm;
+  padding: 0.4cm 0cm;
   width: 100%;
   border: 1px white solid;
   border-color: transparent;
@@ -48,7 +70,7 @@ p {
 /* ======================================Email Header======================================= */
 
 .emailHeader {
-  margin: 0.4cm 0.2cm;
+  margin: 0.1cm 0.2cm;
   /* margin-right: 10%; */
 }
 .emailHeader:after {
@@ -66,7 +88,7 @@ p {
 }
 
 .emailHeaderText {
-  background: var(--middle-grey);
+  background: var(--email-header);
   padding: var(--header-text-padding);
   float: left;
   height: calc(1em * var(--header-text-lines) + 2px);
@@ -74,7 +96,8 @@ p {
   overflow-x: hidden;
 }
 .emailHeaderText p {
-  text-shadow: 1px 0px 0px black;
+  -webkit-font-smoothing : auto;
+  /* text-shadow: 1px 0px 0px black; */
 }
 
 .emailHeaderImage {
@@ -114,17 +137,8 @@ p {
   height: 2cm;
   padding: 0.25cm;
 }
-.imgAttachment:hover {
-  opacity: 0.3;
-}
 .imgAttachment img {
   height: 100%;
-  -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(50%);
-}
-.imgAttachment:hover img {
-  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(0%);
 }
 
 .paperClip {
@@ -135,6 +149,38 @@ p {
   bottom: 0%;
   display: flex;
 }
-.paperClip img {
 
+
+/* ==================================Drop Shadows============================= */
+
+.imgAttachment img, .emailHeaderText, .emailHeaderImage img {
+  -webkit-filter: drop-shadow(var(--shad-right) var(--shad-down) 0px var(--shad-color));
+  filter: drop-shadow(var(--shad-right) var(--shad-down) 0px var(--shad-color));
+}
+
+
+/* ==================================Clickable elements============================= */
+
+.imgAttachment:hover img, .emailHeaderImage:hover img {
+  opacity: 0.3;
+  /* transform: translate(var(--shad-right), var(--shad-down)); */
+  -webkit-filter: none;
+  filter: none;
+  -webkit-filter: grayscale(75%);
+  filter: none grayscale(75%);
+}
+
+/* ==================================Screen overlay============================= */
+
+.screenTexture {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  pointer-events:none;
+  z-index: 20;
+
+  --screen-texture-shadow: #22000280;
+  box-shadow: inset 0 -1vh calc((2vw + 2vh) / 2) var(--screen-texture-shadow);
 }

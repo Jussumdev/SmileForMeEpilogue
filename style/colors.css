@@ -1,0 +1,14 @@
+
+
+div, body, html {
+  --ridge-light: #99bfc1;
+  --ridge-flat: #799c9c;
+  --ridge-dark: #233e37;
+  --windows-background: #496561;
+  --content-background: #dfdcc0;
+
+  --window-label: #4a4598;
+  --window-label-text: #99bfc1;
+
+  --email-header: #799c9c;
+}

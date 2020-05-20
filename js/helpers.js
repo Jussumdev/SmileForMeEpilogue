@@ -32,6 +32,21 @@ function lerp(source, target, coeff){
   return term1 + term2
 }
 
+function lerpClamped(source, target, coeff){
+  coeff = clamp(coeff, 0, 1);
+  var term1 = target * coeff
+  var term2 = source * (1-coeff)
+  return term1 + term2
+}
+
+function frameLerp(source, target, smoothing, dt) {
+  return lerp(
+    source,
+    target,
+    1 - Math.pow(smoothing, dt / 1000)
+  );
+}
+
 //Bob a number by sin of time
 //param:
 //  rate - number of bobs per pi seconds
@@ -68,7 +83,6 @@ function v3Bob(v3_position, rate, magnitude, offset = 0) {
 }
 
 function isLetter(str) {
-
   return str.length === 1 && str.match(/[a-z]/i);
 }
 

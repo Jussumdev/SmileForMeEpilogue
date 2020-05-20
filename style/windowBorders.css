@@ -1,25 +1,18 @@
 
-.mainContentMargins, .screenBorder-Inset, .screenBorder-Outset, .screenBackground, .emailParent {
+
+
+
+.mainContentMargins, .sideContentMargins, .mainContentParent, .sideContentParent {
   --screenBorder-Offset: 0.5cm;
+  --content-padding: 0.2cm;
 
   --inset-bottom: 1cm;
   --inset-right: 30vw;
   --inset-top: 0.5cm;
   --inset-left: 0cm;
 }
-
-div {
-  --light-grey: #dddddd;
-  --middle-grey: #b1b1b1;
-  --dark-grey: #474747;
-  --content-background: #ffffff;
-  --window-label: #8383dc;
-}
-
-
-
 @media all and (max-width: 100vh) {
-  .mainContentMargins, .screenBorder-Inset, .screenBorder-Outset, .screenBackground, .emailParent {
+  .mainContentMargins, .sideContentMargins, .mainContentParent, .sideContentParent {
     --inset-bottom: 1cm;
     --inset-right: 0cm;
     --inset-top: 0.5cm;
@@ -27,9 +20,8 @@ div {
   }
 }
 
-
-.emailParent {
-  --base-padding: 1cm;
+.mainContentParent {
+  --base-padding: calc(var(--screenBorder-Offset) + var(--content-padding));
   padding:
   calc(var(--base-padding) + var(--inset-top))
   calc(var(--base-padding) + var(--inset-right))
@@ -39,6 +31,16 @@ div {
   height: 100%;
 }
 
+.sideContentParent {
+  /* white-space: nowrap; */
+  padding: var(--content-padding);
+  overflow-x: scroll;
+  overflow-y: scroll;
+  position: relative;
+  background-color: transparent;
+  pointer-events: all;
+  height: calc(100% - 2*var(--content-padding));
+}
 
 /* The grey area outside the boundaries of the screen */
 .mainContentMargins {
@@ -49,34 +51,68 @@ div {
     top:0cm;
     left:0cm;
     bottom:0cm;
-    right:0cm;
+    right:var(--inset-right);
 
-  border: 0cm var(--middle-grey) solid;
+  border: 0cm var(--windows-background) solid;
   background-color: transparent;
 
   border-width:
   calc(var(--screenBorder-Offset) + var(--inset-top))
-  calc(var(--screenBorder-Offset) + var(--inset-right))
+  var(--screenBorder-Offset)/* calc(var(--screenBorder-Offset) + var(--inset-right)) */
   calc(var(--screenBorder-Offset) + var(--inset-bottom))
   calc(var(--screenBorder-Offset) + var(--inset-left));
+
+  --shadow: drop-shadow(0px 0.4cm 0.8cm #400000dd);
+  -webkit-filter: var(--shadow);
+  filter: var(--shadow);
 }
+
+.sideContentMargins {
+  z-index: 2;
+  pointer-events: none;
+
+  position: fixed;
+    top:0cm;
+    left:calc(100% - var(--screenBorder-Offset) - var(--inset-right));
+    bottom:0cm;
+    right:0cm;
+
+  border: 0cm var(--windows-background) solid;
+  background-color: transparent;
+
+  border-width:
+  calc(var(--screenBorder-Offset) + var(--inset-top))
+  var(--screenBorder-Offset)/* calc(var(--screenBorder-Offset) + var(--inset-right)) */
+  calc(var(--screenBorder-Offset) + var(--inset-bottom))
+  calc(var(--screenBorder-Offset) + var(--inset-left))
+}
+@media all and (max-width: 100vh) {
+  .sideContentMargins {
+    display: none;
+  }
+}
+
+
+/* ===================GENERIC NESTABLE BORDERS FOR RIDGE EFFECT==================== */
 
 .screenBorder-Outset, .screenBorder-Plateau, .screenBorder-Inset {
   position: relative;
   background-color: transparent;
 }
 
-
-
 .outsetBorders, .screenBorder-Outset {
   --outset-width: 3px;
   border-width: var(--outset-width);
   border-style: solid;
 
-  border-left-color: var(--light-grey);
-  border-right-color: var(--dark-grey);
-  border-top-color: var(--light-grey);
-  border-bottom-color: var(--dark-grey);
+  border-left-color: var(--ridge-light);
+  border-right-color: var(--ridge-dark);
+  border-top-color: var(--ridge-light);
+  border-bottom-color: var(--ridge-dark);
+
+  /* --shadow: drop-shadow(-0.1cm -0.1cm 0.2cm #00000055);
+  -webkit-filter: var(--shadow);
+  filter: var(--shadow); */
 }
 /* The outermost border in the raised ridge outline */
     .screenBorder-Outset {
@@ -91,7 +127,7 @@ div {
   border-width: var(--plateau-width);
   border-style: solid;
 
-  border-color: var(--middle-grey);
+  border-color: var(--ridge-flat);
 }
 /* The middle border in the raised ridge outline */
     .screenBorder-Plateau {
@@ -106,10 +142,10 @@ div {
   border-width: var(--inset-width);
   border-style: solid;
 
-  border-left-color: var(--dark-grey);
-  border-right-color: var(--light-grey);
-  border-top-color: var(--dark-grey);
-  border-bottom-color: var(--light-grey);
+  border-left-color: var(--ridge-dark);
+  border-right-color: var(--ridge-light);
+  border-top-color: var(--ridge-dark);
+  border-bottom-color: var(--ridge-light);
 }
 /* The innermost border in the raised ridge outline */
     .screenBorder-Inset {
@@ -118,14 +154,23 @@ div {
       height: var(--width-height);
     }
 
-.middleGreyBackground {
-  background-color: var(--middle-grey);
+
+
+
+.windowBGColor {
+  background-color: var(--windows-background);
 }
 
 .windowLabel {
   padding: 0.1cm 0.1cm;
   width: calc(100% - 0.2cm);
   background-color: var(--window-label);
+}
+.windowLabel p {
+  color: var(--window-label-text);
+}
+.windowLabel:hover {
+  opacity: 0.3;
 }
 
 .screenBackground {

@@ -7,6 +7,7 @@
   <title>Test Temp</title>
 
   <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+  <link rel="stylesheet" type="text/css" href="style/colors.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="style/windowBorders.css">
   <link rel="stylesheet" type="text/css" href="style/overlay.css">
@@ -22,32 +23,14 @@
 
   <script src="js/emailTemplate.js"></script>
   <script src="js/generateEmails.js"></script>
+
+
+  <script src="js/mainLoop.js"></script>
 </head>
 
 <body>
 
-  <div class = linkPopupParent id = imagePopup>
-    <div class = popupBackground onclick = "closeImageOverlay()"></div>
-    <div class = windowSizer>
-      <div class = "screenBorder-Outset middleGreyBackground">
-        <div class = windowLabel onclick = "closeImageOverlay()">
-          <p>Attachment Viewer v. 5.1.1 (tap outside window to exit)
-          </p>
-        </div>
-        <div class = imageContainer>
-          <img class = "imagePopupImg insetBorders" src = "f" id = imagePopupImg></img>
-        </div>
-        <div class = "outsetBorders middleGreyBackground imageContainerText">
-          <p>
-            attachment info:
-            <br>name: <a href = "leftblank" target = "_blank" id = imagePopupSourceLink></a>
-            <br>author: <a href = "leftblank" target = "_blank" id = imagePopupAuthorLink></a>
-            <br>(links open in new tab)
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class = screenTexture></div>
 
   <!-- Static borders -->
   <div class = "mainContentMargins">
@@ -59,19 +42,52 @@
     </div>
   </div>
   <div class = "screenBackground"></div>
-  <!-- ----- -->
 
-  <div class="aboveBorders">
-    <p>
-      PedalMail v.2.12f
-    </p>
+  <div class = "sideContentMargins">
+    <div class = "screenBorder-Outset">
+      <div class = "screenBorder-Plateau">
+        <div class = "screenBorder-Inset">
+          <div class = sideContentParent id = none>
+            <p>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+              Kamal&nbspBora [assistant@dentalschool] <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+
+  <div class=scrollBar id=scrollfield data-scrollAttachElement="whoa">
+    <div class=scrollHandle></div>
   </div>
 
-  <div class = emailParent id = emailParent>
-  <!-- emails are generated here -->
-
+  <div class="aboveBorders" style="width:calc(100% - 6px);padding:3px">
+    <div class="windowLabel">
+      <p>
+        PedalMail v.2.12f
+      </p>
+    </div>
   </div>
 
+  <div class = mainContentParent id = emailParent>
+    <!-- emails are generated here -->
+  </div>
 
 
 
