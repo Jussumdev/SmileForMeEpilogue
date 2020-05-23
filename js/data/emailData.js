@@ -57,14 +57,21 @@ email (
   ,0
 );
 email (
-  'Kamal'
+  'Kamal2'
   ,'what is up'
   ,'This is a test email. Is this working? This should be generated on the fly!'
   ,['test']
   ,0
 );
 email (
-  'Kamal'
+  'Kamal3'
+  ,'what is up'
+  ,'This is a test email. Is this working? This should be generated on the fly!'
+  ,['test', 'test']
+  ,0
+);
+email (
+  'Kamal2'
   ,'what is up'
   ,'This is a test email. Is this working? This should be generated on the fly!'
   ,['test', 'test']
@@ -85,7 +92,7 @@ email (
   ,0
 );
 email (
-  'Kamal'
+  'Kamal3'
   ,'what is up'
   ,'This is a test email. Is this working? This should be generated on the fly!'
   ,['test', 'test']
@@ -99,14 +106,7 @@ email (
   ,0
 );
 email (
-  'Kamal'
-  ,'what is up'
-  ,'This is a test email. Is this working? This should be generated on the fly!'
-  ,['test', 'test']
-  ,0
-);
-email (
-  'Kamal'
+  'Kamal2'
   ,'what is up'
   ,'This is a test email. Is this working? This should be generated on the fly!'
   ,['test', 'test']

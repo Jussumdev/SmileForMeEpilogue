@@ -1,5 +1,3 @@
-
-
 div, body, html {
   --ridge-light: #99bfc1;
   --ridge-flat: #799c9c;
@@ -11,4 +9,8 @@ div, body, html {
   --window-label-text: #99bfc1;
 
   --email-header: #799c9c;
+
+  --floating-window-text: black;
+  --floating-window-textbox: white;
+  /* --floating-window-textbox: var(--windows-background); */
 }

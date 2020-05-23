@@ -1,10 +1,6 @@
-
-
-
-
 .mainContentMargins, .sideContentMargins, .mainContentParent, .sideContentParent {
   --screenBorder-Offset: 0.5cm;
-  --content-padding: 0.2cm;
+  --content-padding: calc(0.2cm + 5px);
 
   --inset-bottom: 1cm;
   --inset-right: 30vw;
@@ -71,6 +67,8 @@
   z-index: 2;
   pointer-events: none;
 
+  --sideContent-bottom-margin: 15vh;
+
   position: fixed;
     top:0cm;
     left:calc(100% - var(--screenBorder-Offset) - var(--inset-right));
@@ -83,7 +81,7 @@
   border-width:
   calc(var(--screenBorder-Offset) + var(--inset-top))
   var(--screenBorder-Offset)/* calc(var(--screenBorder-Offset) + var(--inset-right)) */
-  calc(var(--screenBorder-Offset) + var(--inset-bottom))
+  calc(var(--screenBorder-Offset) + var(--inset-bottom) + var(--sideContent-bottom-margin))
   calc(var(--screenBorder-Offset) + var(--inset-left))
 }
 @media all and (max-width: 100vh) {
@@ -101,7 +99,7 @@
 }
 
 .outsetBorders, .screenBorder-Outset {
-  --outset-width: 3px;
+  --outset-width: 4px;
   border-width: var(--outset-width);
   border-style: solid;
 
@@ -123,7 +121,7 @@
 
 
 .plateautBorders, .screenBorder-Plateau {
-  --plateau-width: 3px;
+  --plateau-width: 5px;
   border-width: var(--plateau-width);
   border-style: solid;
 
@@ -138,7 +136,7 @@
 
 
 .insetBorders, .screenBorder-Inset {
-  --inset-width: 3px;
+  --inset-width: 4px;
   border-width: var(--inset-width);
   border-style: solid;
 
@@ -161,9 +159,23 @@
   background-color: var(--windows-background);
 }
 
+.floatingWindowText {
+  pointer-events: all;
+  padding: 0.1cm 0.1cm;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: var(--floating-window-textbox);
+}
+.floatingWindowText p {
+  color: var(--floating-window-text)
+}
+
 .windowLabel {
+  pointer-events: all;
   padding: 0.1cm 0.1cm;
   width: calc(100% - 0.2cm);
+  white-space: nowrap;
+  overflow: hidden;
   background-color: var(--window-label);
 }
 .windowLabel p {

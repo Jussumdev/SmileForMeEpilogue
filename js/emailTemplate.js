@@ -19,25 +19,25 @@
 function fillTemplate(name, subject, profilesrc, profileimgdata, text, attachmentHTML) {
 return `
 <div class = "emailContainer">
-    <div class = "emailHeader">
-      <div class = "emailHeaderText">
-        <p>
-          ${name}
-          <br> ${subject}
-        </p>
-      </div>
-      <div class = "emailHeaderImage" onclick = "openImageLink(this)" data-imageData = "${profileimgdata}">
-        <img src="${profilesrc}"></img>
-      </div>
-    </div>
-    <div class = "emailBody">
+  <div class = "emailHeader">
+    <div class = "emailHeaderText">
       <p>
-        ${text}
+        ${name}
+        <br> ${subject}
       </p>
     </div>
-    <div class = "attachments">
-      ${attachmentHTML}
+    <div class = "emailHeaderImage" onclick = "openImageLink(this)" data-imageData = "${profileimgdata}">
+      <img src="${profilesrc}"></img>
     </div>
+  </div>
+  <div class = "emailBody">
+    <p>
+      ${text}
+    </p>
+  </div>
+  <div class = "attachments">
+    ${attachmentHTML}
+  </div>
 </div>
 `
 }

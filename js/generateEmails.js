@@ -2,7 +2,36 @@
 
 // takes in an email object and appends the appropriate html to the main page
 function initEmail(email) {
-  document.getElementById("emailParent").innerHTML += generateEmailHTML(email);
+  document.getElementById("emailCloser").insertAdjacentHTML('beforebegin',generateEmailHTML(email));
+  bumpUpRecipient(email.senderID);
+}
+
+function updateEmailCount(count) {
+  document.getElementById("messagesUsed").innerHTML=`${count}/150`; //TODO: real number
+}
+
+function bumpUpRecipient(senderID) {
+  //move the recipient to the top of the list and make their name more visible
+  var senderEl = document.getElementById(`recipientList${senderID}`);
+  senderEl.remove();
+  var recipientList = document.getElementById("recipientList");
+  recipientList.insertAdjacentHTML('afterbegin', genRecipientString(senderID, 100));
+}
+
+function initRecipientList() {
+  var recipientList = document.getElementById("recipientList");
+  for (var senderID in senderDictionary) {
+    recipientList.insertAdjacentHTML('beforeend',genRecipientString(senderID, 40));
+  }
+}
+
+function genRecipientString(senderID, opacity) {
+  var sender = senderDictionary[senderID];
+  return `
+  <span style="opacity:${opacity}%" id = recipientList${senderID}>
+  ${sender.name} &lt${sender.email}&gt<br>
+  </span>
+  `;
 }
 
 // Takes in an email object and returns the html for that email

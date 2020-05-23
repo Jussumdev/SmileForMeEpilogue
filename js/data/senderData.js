@@ -1,7 +1,7 @@
 //Contains all the data for all of the senders who can appear in the header of emails
 
 // Add new sender objects here with UNIQUE ids
-var Clancy = {
+var Kamal = {
   //DISPLAYED: The name of the sender (this appears in the email header)
 name:               'Clancy Cat Soup'
   //DISPLATED: The name of the sender (this appears in the email header)
@@ -15,7 +15,7 @@ name:               'Clancy Cat Soup'
   //The link to the author profile, including full http
 ,profPicAuthorLink: 'https://twitter.com/yugsly'
   //The path to the file (including extension) in BOTH images/profiles/small AND images/profile/extension
-,profPicSource:     'clancy.png'
+,profPicSource:     'test.png'
 }
 
 var CopyThisAndChangeTheName = {
@@ -55,6 +55,7 @@ name:               ''
 //Write a new entry each time you add a new sender
 //Don't forget the comma!
 var senderDictionary = {
-  "Clancy" : Clancy ,
-  "CopyThisAndChangeTheName" : CopyThisAndChangeTheName
+  "Kamal" : Kamal,
+  "Kamal2" : Kamal,
+  "Kamal3" : Kamal
 }

@@ -1,9 +1,36 @@
+var emailsOut = 0;
 
-function generateAllEmails() {
-  console.log(allEmails.length+" emails loaded");
-  for (var i = 0; i < allEmails.length; i++) {
-    initEmail(allEmails[i]);
+function getURLProgress() {
+  //From https://www.sitepoint.com/get-url-parameters-with-javascript/
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  if (urlParams.has('progress')) {
+    return urlParams.get('progress');
+  } else {
+    // return 0;
+    return allEmails.length;  //todo: TEMPORARY DEBUG
   }
 }
 
-addOnLoad(generateAllEmails);
+function setURLProgress(progress) {
+  // const queryString = window.location.search;
+  // const urlParams = new URLSearchParams(queryString);
+  // urlParams.set('progress', progress)
+}
+
+function generateStartEmails() {
+  prog = Math.min(getURLProgress(), allEmails.length)
+  for (var i = 0; i < prog; i++) {
+    newEmail(i);
+  }
+}
+
+function newEmail() {
+  initEmail(allEmails[emailsOut]);
+  updateEmailCount(emailsOut+1);
+  emailsOut++;
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+addOnLoad(initRecipientList);
+addOnLoad(generateStartEmails);

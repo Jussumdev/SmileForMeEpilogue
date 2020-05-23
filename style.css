@@ -40,8 +40,21 @@ p {
 
   /* font-family: serif; */
 }
+a {
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+a:hover{
+  opacity:30%;
+}
 
-
+#ImageCredits p {
+  -webkit-font-smoothing : antialiased;
+  font-family: 'mini-wakuwakuregular';
+  text-shadow: none;
+  color: #999999;
+}
 
 
 /* ==================================Hide all scrollbars============================= */

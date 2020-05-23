@@ -13,10 +13,12 @@
   <link rel="stylesheet" type="text/css" href="style/overlay.css">
   <!-- <link rel="shortcut icon" href="favicon.ico?r=31241" type="image/x-icon" /> -->
 
+  <!-- helpers -->
   <script src="js/helpers.js"></script>
-  <script src="js/scrolldisable.js"></script>
   <script src="js/overlay.js"></script>
+  <script src="js/periodicLetterBobbing.js"></script>
 
+  <!-- data -->
   <script src="js/data/emailData.js"></script>
   <script src="js/data/senderData.js"></script>
   <script src="js/data/attachmentData.js"></script>
@@ -34,37 +36,31 @@
 
   <!-- Static borders -->
   <div class = "mainContentMargins">
-    <div class = "screenBorder-Outset">
+    <div class = "screenBorder-Outset" style="height:calc(100% - 1em - 0.2cm)">
       <div class = "screenBorder-Plateau">
         <div class = "screenBorder-Inset">
         </div>
       </div>
     </div>
+    <div class = "floatingWindowText">
+      <p>
+        <span id=messagesUsed></span> free PedalMessages(tm) used
+      </p>
+    </div>
   </div>
   <div class = "screenBackground"></div>
 
   <div class = "sideContentMargins">
-    <div class = "screenBorder-Outset">
+    <div class = "floatingWindowText">
+      <p>
+        recipients:
+      </p>
+    </div>
+    <div class = "screenBorder-Outset" style="height:calc(100% - 1em - 0.2cm)">
       <div class = "screenBorder-Plateau">
         <div class = "screenBorder-Inset">
-          <div class = sideContentParent id = none>
-            <p>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
-              Kamal&nbspBora [assistant@dentalschool] <br>
+          <div class = sideContentParent>
+            <p id = recipientList>
             </p>
           </div>
         </div>
@@ -73,9 +69,8 @@
   </div>
   <!---->
 
-  <div class=scrollBar id=scrollfield data-scrollAttachElement="whoa">
-    <div class=scrollHandle></div>
-  </div>
+
+
 
   <div class="aboveBorders" style="width:calc(100% - 6px);padding:3px">
     <div class="windowLabel">
@@ -85,8 +80,9 @@
     </div>
   </div>
 
-  <div class = mainContentParent id = emailParent>
+  <div class = "mainContentParent" id = emailParent>
     <!-- emails are generated here -->
+    <div class = "emailContainer" id = emailCloser onclick="newEmail()">Refresh new message</div>
   </div>
 
 
