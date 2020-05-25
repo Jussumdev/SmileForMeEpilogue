@@ -40,7 +40,6 @@ function setBob(){
       el.getAttribute('data-magnitude'),
       roundDecimals(el.getAttribute('data-offset'), 2)
     );
-    console.log(char_offset)
     el.style = "position:relative;top:"+char_offset+"em;"
   }
 }

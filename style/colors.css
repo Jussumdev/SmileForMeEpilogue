@@ -4,9 +4,12 @@ div, body, html {
   --ridge-dark: #233e37;
   --windows-background: #496561;
   --content-background: #dfdcc0;
+  /* --html-background: var(--content-background); */
+  --html-background: black;
 
-  --window-label: #4a4598;
-  --window-label-text: #99bfc1;
+  --window-label: #3d58ff;
+  /* --window-label-text: #99bfc1; */
+  --window-label-text: white;
 
   --email-header: #799c9c;
 

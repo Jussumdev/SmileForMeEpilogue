@@ -58,9 +58,9 @@
   calc(var(--screenBorder-Offset) + var(--inset-bottom))
   calc(var(--screenBorder-Offset) + var(--inset-left));
 
-  --shadow: drop-shadow(0px 0.4cm 0.8cm #400000dd);
+  /* --shadow: drop-shadow(0px 3vh 3vh #400000aa);
   -webkit-filter: var(--shadow);
-  filter: var(--shadow);
+  filter: var(--shadow); */
 }
 
 .sideContentMargins {
@@ -90,12 +90,19 @@
   }
 }
 
+.mainContentMargins {
+  --shadow: drop-shadow(0px 10px 10px #400000aa);
+  -webkit-filter: var(--shadow);
+  filter: var(--shadow);
+}
+
 
 /* ===================GENERIC NESTABLE BORDERS FOR RIDGE EFFECT==================== */
 
 .screenBorder-Outset, .screenBorder-Plateau, .screenBorder-Inset {
   position: relative;
   background-color: transparent;
+  z-index: 3;
 }
 
 .outsetBorders, .screenBorder-Outset {
@@ -111,6 +118,8 @@
   /* --shadow: drop-shadow(-0.1cm -0.1cm 0.2cm #00000055);
   -webkit-filter: var(--shadow);
   filter: var(--shadow); */
+  box-shadow: -2px -2px 5px #00000044;
+
 }
 /* The outermost border in the raised ridge outline */
     .screenBorder-Outset {

@@ -16,6 +16,7 @@ function setURLProgress(progress) {
   // const queryString = window.location.search;
   // const urlParams = new URLSearchParams(queryString);
   // urlParams.set('progress', progress)
+  window.history.pushState("object or string", '', `index.html?progress=${progress}`);
 }
 
 function generateStartEmails() {
@@ -26,9 +27,14 @@ function generateStartEmails() {
 }
 
 function newEmail() {
+  if (emailsOut >= allEmails.length) {
+    return;
+  }
+  
   initEmail(allEmails[emailsOut]);
   updateEmailCount(emailsOut+1);
   emailsOut++;
+  setURLProgress(emailsOut);
   window.scrollTo(0,document.body.scrollHeight);
 }
 
