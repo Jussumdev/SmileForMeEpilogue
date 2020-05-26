@@ -1,14 +1,54 @@
 
 
 // takes in an email object and appends the appropriate html to the main page
-function initEmail(email) {
+function initEmail(email, speeding) {
   document.getElementById("emailCloser").insertAdjacentHTML('beforebegin',generateEmailHTML(email));
   bumpUpRecipient(email.senderID);
+  handleEvent(email.eventID, speeding);
+  updateEmailCloser(false);
+  if (!speeding) {
+    setNotifDelay(3);
+  }
+}
+
+function setNotifDelay(s) {
+  setTimeout(function() {
+    updateEmailCloser(true);
+  }, s * 1000);
+}
+
+
+function updateEmailCloser(newMail) {
+  var html;
+  if (newMail) {
+    html = "<a class='' onclick='newEmail(false)'><img class=inlineimg src='images/ui/newMail.gif'/> refresh ( 1 ) new message</a>"
+  } else {
+    html = "<span class=noNewMail><img class=inlineimg src='images/ui/hourglass.gif'/> ( 0 ) new messages</span>"
+  }
+  document.getElementById("newMessage").innerHTML=html;
 }
 
 function updateEmailCount(count) {
-  document.getElementById("messagesUsed").innerHTML=`${count}/150`; //TODO: real number
+  var remaining = allEmails.length - count + 1;
+  document.getElementById("messagesRemaining").innerHTML=`${remaining}`;
 }
+
+function handleEvent(eventID, speeding) {
+  switch(eventID) {
+    case 1:
+      if (speeding) {
+        enableMusicWindow();
+      } else {
+        //TODO: player can not advance until musicWindowOpen = true
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+
+//==================================Recipient List====================================
 
 function bumpUpRecipient(senderID) {
   //move the recipient to the top of the list and make their name more visible
@@ -21,7 +61,7 @@ function bumpUpRecipient(senderID) {
 function initRecipientList() {
   var recipientList = document.getElementById("recipientList");
   for (var senderID in senderDictionary) {
-    recipientList.insertAdjacentHTML('beforeend',genRecipientString(senderID, 40));
+    recipientList.insertAdjacentHTML('beforeend',genRecipientString(senderID, 20));
   }
 }
 
@@ -29,20 +69,29 @@ function genRecipientString(senderID, opacity) {
   var sender = senderDictionary[senderID];
   return `
   <span style="opacity:${opacity}%" id = recipientList${senderID}>
-  ${sender.name} &lt${sender.email}&gt<br>
+  ${sender.name}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <span class="emailAddress">&lt${sender.email}&gt</span>
+  <br>
   </span>
   `;
 }
 
+
+//====================================Generation======================================
+
+
 // Takes in an email object and returns the html for that email
 function generateEmailHTML(email) {
   var sender = senderDictionary[email.senderID];
+  var t = email.text;
+  t = t.replace('<song>','<a onclick="openMusicWindow()">platitudes.wav</a>');
+
   var emailHTML = fillTemplate(
     name=sender.name,
-    subject=email.subject,
+    subject=sender.email,
     profilesrc=sender.profPicSource,
     profileimgdata=generateImagePopupData(sender.profPicName, sender.profPicAuthor, sender.profPicLink, sender.profPicAuthorLink, sender.profPicSource),
-    text=email.text,
+    text=t,
     attachmentHTML=(email.attachments == null) ? "" : generateAttachmentHTML(email.attachments)
   );
   return emailHTML;
@@ -63,7 +112,7 @@ function generateAttachmentHTML(attachmentIDs) {
     var id = attachmentIDs[i];
     var attachment = attachmentDictionary[id];
     var imagePopupData = generateImagePopupData(
-      attachment.name,
+      attachment.name.replace(' ', '&nbsp'),
       attachment.author,
       attachment.sourceLink,
       attachment.authorLink,

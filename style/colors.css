@@ -13,7 +13,7 @@ div, body, html {
 
   --email-header: #799c9c;
 
-  --floating-window-text: black;
+  --floating-window-text: white;
   --floating-window-textbox: white;
-  /* --floating-window-textbox: var(--windows-background); */
+  --floating-window-textbox: var(--windows-background);
 }

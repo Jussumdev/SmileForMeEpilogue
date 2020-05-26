@@ -40,27 +40,4 @@ function email(senderID, text, attachments, randomselection, eventID) {
 }
 
 // Python script generates all after me:
-email(
-	'Kamal',
-	'This is a test of the text system right nowSheet1!B:B, Sheet1!B:B, This is a test of the text system right nowSheet1!B:B, Sheet1!B:B, This is a test of the text system right nowSheet1!B:B, Sheet1!B:B, This is a test of the text system right nowSheet1!B:B, Sheet1!B:B, This is a test of the text system right nowSheet1!B:B, Sheet1!B:B, ',
-	['test'],
-	0,
-	0
-);
-
-email(
-	'Lulia',
-	':LorumImpus, Lorum Ipsum, ds897fd89*&#(*&$(*#@*&:LorumImpus, Lorum Ipsum, ds897fd89*&#(*&$(*#@*&:LorumImpus, Lorum Ipsum, ds897fd89*&#(*&$(*#@*&',
-	[],
-	0,
-	0
-);
-
-email(
-	'Habit',
-	'Testy test wow,,,.....',
-	['test', 'test2'],
-	0,
-	0
-);
-
+email('Jerafina','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Jimothan','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Millie','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Borbra','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Dallas','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Gerry','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Gillis','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Habit','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Kamal','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu<br><br><song>',[],0,1);email('Lulia','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Marv','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Mirphy','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Nat','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Parsley','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Putunia','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Questionette','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Ronbo','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Tiff','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Randy','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('TimTam','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Trencil','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);email('Trevor','est dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogue Test dialogu',[],0,0);

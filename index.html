@@ -40,13 +40,13 @@
   <div class = "mainContentMargins">
     <div class = "screenBorder-Outset" style="height:calc(100% - 1em - 0.2cm)">
       <div class = "screenBorder-Plateau">
-        <div class = "screenBorder-Inset">
+        <div class = "screenBorder-Inset contentShadow">
         </div>
       </div>
     </div>
     <div class = "floatingWindowText">
       <p>
-        <span id=messagesUsed></span> free PedalMessages(tm) used
+        [ <span id=messagesRemaining></span> ] free PedalMessages (tm) remaining
       </p>
     </div>
   </div>
@@ -61,7 +61,7 @@
     <div class = "screenBorder-Outset" style="height:calc(100% - 1em - 0.2cm)">
       <div class = "screenBorder-Plateau">
         <div class = "screenBorder-Inset">
-          <div class = sideContentParent>
+          <div class = "sideContentParent contentShadow">
             <p id = recipientList>
             </p>
           </div>
@@ -82,7 +82,11 @@
 
   <div class = "mainContentParent" id = emailParent>
     <!-- emails are generated here -->
-    <div class = "emailContainer" id = emailCloser onclick="newEmail()">Refresh new message</div>
+    <div class = "emailCloser" id = emailCloser>
+      <p>
+        <span id=newMessage></span>
+      </p>
+    </div>
   </div>
 
 

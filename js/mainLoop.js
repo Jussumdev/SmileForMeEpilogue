@@ -22,21 +22,26 @@ function setURLProgress(progress) {
 function generateStartEmails() {
   prog = Math.min(getURLProgress(), allEmails.length)
   for (var i = 0; i < prog; i++) {
-    newEmail(i);
+    newEmail(true);
   }
+  updateEmailCloser(false);
+  setNotifDelay(3);
 }
 
-function newEmail() {
+function newEmail(speeding) {
   if (emailsOut >= allEmails.length) {
     return;
   }
-  
-  initEmail(allEmails[emailsOut]);
+
+  if (emailsOut==0) {
+    initRecipientList();
+  }
+
+  initEmail(allEmails[emailsOut], speeding);
   updateEmailCount(emailsOut+1);
   emailsOut++;
   setURLProgress(emailsOut);
   window.scrollTo(0,document.body.scrollHeight);
 }
 
-addOnLoad(initRecipientList);
 addOnLoad(generateStartEmails);

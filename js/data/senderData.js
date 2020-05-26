@@ -1,7 +1,7 @@
 //Contains all the data for all of the senders who can appear in the header of emails
 
 // Add new sender objects here with UNIQUE ids
-var Kamal = {
+var ClancyExample = {
   //DISPLAYED: The name of the sender (this appears in the email header)
 name:               'Clancy Cat Soup'
   //DISPLATED: The name of the sender (this appears in the email header)
@@ -131,14 +131,14 @@ name:               'Marv Truncler'
 var Mirphy = {
 name:               'Mirphy Fotoparat'
 ,email:             'mirphyfotos@flashmail.zoom'
-,profPicName:       'Mirphy’s gallery'
+,profPicName:       'Mirphy and her gallery'
 ,profPicAuthor:     'Gummyguts'
 ,profPicLink:       'https://twitter.com/gummyguts/status/1261762471540461575?s=20'
 ,profPicAuthorLink: 'https://twitter.com/gummyguts'
-,profPicSource:     'mirphyicon'
+,profPicSource:     'mirphyicon.png'
 }
 
-var Nat Vancey = {
+var Nat = {
 name:               'Nat Vancey'
 ,email:             'vanceyvanity@blogblot.cob'
 ,profPicName:       'Nat and Trevor being scary'
@@ -153,8 +153,7 @@ name:               'Parsley Botch'
 ,email:             'parsleybotch@lawyerup.now'
 ,profPicName:       'Phineas and Ferb meme but Parsley'
 ,profPicAuthor:     'Curious-Shadow-Cat'
-,profPicLink:       '
-https://curious-shadow-cat.tumblr.com/post/188355617862/when-you-find-out-your-dad-adopted-your-friends'
+,profPicLink:       'https://curious-shadow-cat.tumblr.com/post/188355617862/when-you-find-out-your-dad-adopted-your-friends'
 ,profPicAuthorLink: 'https://curious-shadow-cat.tumblr.com'
 ,profPicSource:     'parsleyicon.png'
 }
@@ -209,8 +208,8 @@ name:               'Tiff Webber'
 ,profPicSource:     'tifficon.png'
 }
 
-var Tim Tam = {
-name:               'Tiff Webber'
+var TimTam = {
+name:               'Tim Tam'
 ,email:             'iwillgetyou@rocks.fist'
 ,profPicName:       'Tim Tam beholding the duck'
 ,profPicAuthor:     'David Oneacre'
@@ -247,7 +246,26 @@ name:               'Trevor Garbo'
 //Write a new entry each time you add a new sender
 //Don't forget the comma!
 var senderDictionary = {
+  "Jimothan" : Jimothan,
+  "Millie" : Millie,
+  "Borbra" : Borbra,
+  "Dallas" : Dallas,
+  "Gerry" : Gerry,
+  "Gillis" : Gillis,
+  "Jerafina" : Jerafina,
   "Kamal" : Kamal,
-  "Kamal2" : Kamal,
-  "Kamal3" : Kamal
+  "Lulia" : Lulia,
+  "Marv" : Marv,
+  "Mirphy" : Mirphy,
+  "Nat" : Nat,
+  "Parsley" : Parsley,
+  "Putunia" : Putunia,
+  "Questionette" : Questionette,
+  "Ronbo" : Ronbo,
+  "Tiff" : Tiff,
+  "Randy" : Randy,
+  "TimTam" : TimTam,
+  "Trencil" : Trencil,
+  "Trevor" : Trevor,
+  "Habit" : Habit
 }

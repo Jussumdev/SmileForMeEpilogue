@@ -10,13 +10,13 @@ html {
 body{
   background: var(--html-background);
   margin: 0px;
+  overflow-x: hidden;
 }
 
 div {
   margin: 0px;
   padding: 0px;
   /* border-radius: 5px; */
-
 
   --shad-right: 0.075cm;
   --shad-down: 0.125cm;
@@ -41,19 +41,28 @@ p {
   /* font-family: serif; */
 }
 a {
-  color: white;
-  font-size: 1.2em;
-  text-decoration: none;
+  /* color: white; */
+  text-decoration: underline;
+  /* font-size: 1.2em; */
 }
 a:hover{
   opacity:30%;
 }
 
-#ImageCredits p {
+.inlineimg {
+  height:1em;
+}
+
+.maskOff {
   -webkit-font-smoothing : antialiased;
   font-family: 'mini-wakuwakuregular';
   text-shadow: none;
   color: #999999;
+}
+.maskOff a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
 }
 
 
@@ -72,7 +81,7 @@ html, div {
 /* ======================================Email Container======================================= */
 
 .emailContainer {
-  margin: 0.2cm 0cm;
+  /* margin: 0.2cm 0cm; */
   padding: 0.4cm 0cm;
   width: 100%;
   border: 1px white solid;
@@ -108,9 +117,14 @@ html, div {
   width: var(--header-text-width);
   overflow-x: hidden;
 }
-.emailHeaderText p {
+.headerTextName {
   -webkit-font-smoothing : auto;
   /* text-shadow: 1px 0px 0px black; */
+}
+
+.emailAddress {
+  font-family: monospace;
+  opacity: 0.5;
 }
 
 .emailHeaderImage {
@@ -132,6 +146,20 @@ html, div {
   /* border-left: 1px solid black; */
   /* background: #eeeeee; */
   padding: 0cm 0.3cm;
+}
+
+/* ======================================Email Closer======================================= */
+
+.emailCloser {
+  width: calc(100%-0.6cm);
+  padding: 1cm 0.3cm;
+}
+.emailCloser p {
+  text-align: center;
+}
+
+.noNewMail {
+  opacity: 0.5;
 }
 
 /* ======================================Attachments Section======================================= */
@@ -215,8 +243,20 @@ html, div {
 }
 
 .edgeShadowHighlight {
-  
+
   /* --off:calc(var(--minU)*1);
   box-shadow: inset var(--off) var(--off) calc(var(--minU) * 1) white;
   opacity: 50%; */
+}
+
+/* =================================Mobile styling============================= */
+
+.mobileHide {
+}
+
+@media all and (max-width: 100vh) {
+  .mobileHide {
+    display: none;
+  }
+
 }

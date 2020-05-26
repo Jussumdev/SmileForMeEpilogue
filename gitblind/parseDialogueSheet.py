@@ -1,7 +1,7 @@
 
 import io
 
-inputPath = 'DialogueSheet - Sheet1.csv';
+inputPath = 'DialogueSheet - Dialogue.csv';
 prefixPath = 'emailDataPrefix.js';
 outputPath = '../js/data/emailData.js';
 
@@ -62,5 +62,5 @@ def main(compact):
     );
 
 if __name__ == "__main__":
-    main(True)
-    # main(False)
+    # main(True)
+    main(False)
