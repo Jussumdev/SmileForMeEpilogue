@@ -1,29 +1,60 @@
 
 
 // takes in an email object and appends the appropriate html to the main page
-function initEmail(email, speeding) {
+function initEmail(email, speeding, lastEmail) {
   document.getElementById("emailCloser").insertAdjacentHTML('beforebegin',generateEmailHTML(email));
   bumpUpRecipient(email.senderID);
   handleEvent(email.eventID, speeding);
-  updateEmailCloser(false);
-  if (!speeding) {
-    setNotifDelay(3);
+  if (lastEmail) {
+    updateEmailCloser(1);
+    setSendNotifDelay(3);
+  } else {
+    updateEmailCloser(1);
+    if (!speeding) {
+      setNotifDelay(3);
+    }
   }
 }
 
 function setNotifDelay(s) {
   setTimeout(function() {
-    updateEmailCloser(true);
+    updateEmailCloser(0);
+  }, s * 1000);
+}
+
+function setSendNotifDelay(s) {
+  setTimeout(function() {
+    updateEmailCloser(2);
   }, s * 1000);
 }
 
 
-function updateEmailCloser(newMail) {
+function updateEmailCloser(mode) {
   var html;
-  if (newMail) {
-    html = "<a class='' onclick='newEmail(false)'><img class=inlineimg src='images/ui/newMail.gif'/> refresh ( 1 ) new message</a>"
-  } else {
-    html = "<span class=noNewMail><img class=inlineimg src='images/ui/hourglass.gif'/> ( 0 ) new messages</span>"
+  switch(mode) {
+    case 0:
+      html = `
+      <a class='' onclick='newEmail(false)'>
+        <img class=inlineimg src='images/ui/newMail.gif'/> refresh ( 1 ) new message
+      </a>
+      `;
+      break;
+    case 1:
+      html = `
+      <span class=noNewMail>
+        <img class=inlineimg src='images/ui/hourglass.gif'/> ( 0 ) new messages
+      </span>
+      `;
+      break;
+    case 2:
+    html = `
+    <span class='' onclick='openComposeWindow()'>
+      <img class=inlineimg src='images/ui/new.gif'/> Compose new message
+    </span>
+    `;
+      break;
+    default:
+      break;
   }
   document.getElementById("newMessage").innerHTML=html;
 }

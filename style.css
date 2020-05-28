@@ -59,10 +59,21 @@ a:hover{
   text-shadow: none;
   color: #999999;
 }
-.maskOff a {
+.maskOff a, .maskOff input[type=submit] {
   color: white;
   text-decoration: none;
   font-size: 1.2em;
+}
+.maskOff input[type=submit] {
+  background: none;
+  outline: none;
+  padding: 0px;
+  margin: 0px;
+  height: 1.2em;
+  border: none;
+}
+.maskOff input[type=submit]:hover {
+  opacity:30%;
 }
 
 
@@ -211,6 +222,19 @@ html, div {
   filter: none;
   -webkit-filter: grayscale(75%);
   filter: none grayscale(75%);
+}
+
+.button {
+  background: var(--button);
+}
+.button:hover {background: var(--button-hover);}
+.button:active {background: var(--button-active);}
+
+.button:hover, .button:active {
+  border-left-color: var(--ridge-dark);
+  border-top-color: var(--ridge-dark);
+  border-right-color: var(--ridge-light);
+  border-bottom-color: var(--ridge-light);
 }
 
 /* ==================================Screen overlay============================= */

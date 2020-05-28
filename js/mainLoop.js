@@ -7,8 +7,7 @@ function getURLProgress() {
   if (urlParams.has('progress')) {
     return urlParams.get('progress');
   } else {
-    // return 0;
-    return allEmails.length;  //todo: TEMPORARY DEBUG
+    return 0;
   }
 }
 
@@ -21,23 +20,28 @@ function setURLProgress(progress) {
 
 function generateStartEmails() {
   prog = Math.min(getURLProgress(), allEmails.length)
-  for (var i = 0; i < prog; i++) {
-    newEmail(true);
+  if (prog==0) {
+    updateEmailCloser(1);
+    setNotifDelay(3);
+  } else {
+    for (var i = 0; i < prog-1; i++) {
+      newEmail(true);
+    }
+    newEmail(false);
   }
-  updateEmailCloser(false);
-  setNotifDelay(3);
 }
 
 function newEmail(speeding) {
   if (emailsOut >= allEmails.length) {
     return;
   }
+  var lastEmail = (emailsOut == allEmails.length - 1);
 
   if (emailsOut==0) {
     initRecipientList();
   }
 
-  initEmail(allEmails[emailsOut], speeding);
+  initEmail(allEmails[emailsOut], speeding, lastEmail);
   updateEmailCount(emailsOut+1);
   emailsOut++;
   setURLProgress(emailsOut);

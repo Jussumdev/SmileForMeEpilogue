@@ -16,4 +16,8 @@ div, body, html {
   --floating-window-text: white;
   --floating-window-textbox: white;
   --floating-window-textbox: var(--windows-background);
+
+  --button: white;
+  --button-hover: grey;
+  --button-active: black;
 }

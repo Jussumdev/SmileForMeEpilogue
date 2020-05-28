@@ -121,13 +121,23 @@ function openAttachmentWindow() {
 function openMusicWindow() {
   document.getElementById("musicTransform").style.display = "inline";
   document.getElementById("popupBG").style.display = "inline";
-  musicWindowOpen = true; musicWindowEverOpened = true;
+  musicWindowOpen = true;
   timeOpened = (new Date()).getTime();
+}
+function openComposeWindow() {
+  document.getElementById("composeTransform").style.display = "inline";
+  document.getElementById("popupBG").style.display = "inline";
+  composeOpen = true;
+}
+function openRadio() {
+  var writtenMail = document.getElementById("composeText").value.replace(/^\s+|\s+$/g,'');
+  if (writtenMail == '') {return;}
+  document.getElementById("radioParent").style.display = "inline";
+  radioParentOpen = true;
 }
 
 function enableMusicWindow() {
   document.getElementById("musicTransform").style.display = "inline";
-  musicWindowEverOpened = true;
 }
 
 
@@ -139,11 +149,27 @@ function closeCurrentOverlay() {
     document.getElementById("ImageCredits").style.display = "none";
     positionAttachmentWindowClosed();
     setLetterBobbingEnabled(false);
+    document.getElementById("popupBG").style.display = "none";
   } else if (musicWindowOpen) {
     musicWindowOpen = false;
+    document.getElementById("popupBG").style.display = "none";
+  } else if (radioParentOpen) {
+    radioParentOpen = false;
+    //DON'T turn off the background
+  } else if (composeOpen) {
+    document.getElementById("composeTransform").style.display = "none";
+    document.getElementById("popupBG").style.display = "none";
+    composeOpen = false;
   }
+}
 
-  document.getElementById("popupBG").style.display = "none";
+function tryToConfirmRadio() {
+  if( document.getElementById('canShare1').checked ||
+      document.getElementById('canShare2').checked ||
+      document.getElementById('canShare3').checked) {
+    closeCurrentOverlay();
+    closeCurrentOverlay();
+  }
 }
 
 //==============================ATTACHMENT WINDOW UPDATE LOOP====================================//
@@ -196,19 +222,25 @@ function positionAttachmentWindowClosed() {
 
 //==============================MUSIC WINDOW UPDATE LOOP====================================//
 
-var musicWindowEverOpened = false;
 var musicWindowOpen = false;
+var radioParentOpen = false;
+var composeOpen = false;
 
-var musicWindowTranslateY = 0;
+var dict = {};
 
-function positionMusicWindow(dt) {
-  if (!musicWindowEverOpened) {return;}
-  var music = document.getElementById("musicTransform");
-  var t = musicWindowOpen ? -150 : 0;
-  musicWindowTranslateY = frameLerp(musicWindowTranslateY, t, 0.0001, dt);
-  music.style.transform = `translate(-50%,calc(${musicWindowTranslateY}% - 2em))`;
+function positionCenteredElement(name, open, lowestTop, offsetCalc, dt) {
+  if (dict[name+"_top"] == undefined) {dict[name+"_top"] = 100;}
+  if (dict[name+"_Y"] == undefined) {dict[name+"_Y"] = 0;}
+  var music = document.getElementById(name);
+  var t = open ? 50 : lowestTop;
+  dict[name+"_top"] = frameLerp(dict[name+"_top"], t, 0.0001, dt);
+  var t2 = open ? -50 : 0;
+  dict[name+"_Y"] = frameLerp(dict[name+"_Y"], t2, 0.0001, dt);
+  var top = roundDecimals(dict[name+"_top"], 4);
+  var transformY = roundDecimals(dict[name+"_Y"], 4);
+  music.style["top"] = `calc(${top}% ${offsetCalc})`;
+  music.style.transform = `translate(-50%,${transformY}%)`;
 }
-
 
 
 
@@ -227,7 +259,9 @@ window.setInterval(function(){
 
   positionAttachmentWindow(dt, thisFrameTime);
   scrollWaveBorder(thisFrameTime);
-  positionMusicWindow(dt)
+  positionCenteredElement("musicTransform", musicWindowOpen, 100, '- 2em', dt);
+  positionCenteredElement("composeTransform", composeOpen, 100, '', dt);
+  positionCenteredElement("radioParent", radioParentOpen, 150, '', dt);
 
 }, 1000 / framerate);
 
@@ -257,7 +291,7 @@ function addLinkPopup() {
     </div>
 
     <div class = musicTransform id = musicTransform onclick = "toggleMusicWindow()">
-      <div class = "screenBorder-Outset floatingWindow" style="background-color:var(--windows-background)">
+      <div class = "screenBorder-Outset floatingWindow musicWindowBackground">
         <div class = windowLabel>
           <p>Super Pedal Music Player v.9.e
           </p>
@@ -276,14 +310,55 @@ function addLinkPopup() {
                 <br>Artist: Test this stuff
               </p>
             </div>
+            <audio controls loop class="audioplayer">
+              <source src="audio/platitudes.mp3" type="audio/mpeg">
+              <!-- <source src="audiofile.ogg" type="audio/ogg"> -->
+              <!-- fallback for non supporting browsers goes here -->
+              <p>Your browser does not support HTML5 audio, but you can still
+                 <a href="audio/platitudes.mp3">download the music</a> and listen along.</p>
+            </audio>
           </div>
-          <audio controls loop class="audioplayer">
-            <source src="audio/platitudes.mp3" type="audio/mpeg">
-            <!-- <source src="audiofile.ogg" type="audio/ogg"> -->
-            <!-- fallback for non supporting browsers goes here -->
-            <p>Your browser does not support HTML5 audio, but you can still
-               <a href="audiofile.mp3">download the music</a> and listen along.</p>
-          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div class = "composeTransform" id = composeTransform>
+      <div class = "screenBorder-Outset floatingWindow composeWindowBackground">
+        <div class = windowLabel onclick = "closeCurrentOverlay()">
+          <p>What's new, flower child?
+          </p>
+        </div>
+        <div class = "EmailComposeContent">
+          <div class = "composeRecipients">
+            <p> TO; everyone
+            </p>
+          </div>
+          <form class="EmailForm" target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
+            <input type='hidden' name='redirect_to' value='https://smileformegame.com'></input>
+            <textarea id=composeText type='textarea' class="insetBorders" name='email' placeholder="Hey everyone... it's been a while.."></textarea>
+            <div class="submitParent">
+              <div type='' value='Send Email' class="outsetBorders button" style="float:right;" onclick="openRadio()">Send Email</div>
+            </div>
+            <div class="radioParent" id=radioParent>
+              <p class=maskOff>
+                Send a copy of your response to LimboLane?
+                Some messages might be posted anonymously in the future.
+              </p>
+              <input type='radio' name='canShare' id='canShare1' value='yes' required></input>
+                <label for="yes" class=maskOff>Sure!</label>
+              <br>
+              <input type='radio' name='canShare' id='canShare2' value='yesNoPost'></input>
+                <label for="yesNoPost" class=maskOff>Send it, but please don't post!</label>
+              <br>
+              <input type='radio' name='canShare' id='canShare3' value='no'></input>
+                <label for="no" class=maskOff>No thanks</label>
+              <br>
+              <p class=maskOff>
+                <input type='submit' value='Confirm' class=maskOff onclick="tryToConfirmRadio()"></input>
+                <a onclick="closeCurrentOverlay()">Keep editing</a>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
