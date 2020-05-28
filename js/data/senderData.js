@@ -80,7 +80,7 @@ name:               'Gillis Soco'
 
 var Habit = {
 name:               'Boris Habit'
-,email:             'hello@thehabitat.join'
+,email:             'Hab_B@PedalMail.cob'
 ,profPicName:       'A painted Habit'
 ,profPicAuthor:     'Spoon'
 ,profPicLink:       'https://www.deviantart.com/spoonfayse/art/something-about-submarines-807573888'
@@ -238,6 +238,26 @@ name:               'Trevor Garbo'
 ,profPicSource:     'trevoricon.png'
 }
 
+var Wallus = {
+name:               'Wallus Breadbear'
+,email:             'breadbear@wall.uss'
+,profPicName:       ''
+,profPicAuthor:     ''
+,profPicLink:       ''
+,profPicAuthorLink: ''
+,profPicSource:     'trevoricon.png'
+}
+
+var Flowerkid = {
+name:               'Flower Child'
+,email:             'bloomed@PedalMail.cob'
+,profPicName:       ''
+,profPicAuthor:     ''
+,profPicLink:       ''
+,profPicAuthorLink: ''
+,profPicSource:     'trevoricon.png'
+}
+
 
 //Here, write an entry in the format:
 //
@@ -267,5 +287,7 @@ var senderDictionary = {
   "TimTam" : TimTam,
   "Trencil" : Trencil,
   "Trevor" : Trevor,
-  "Habit" : Habit
+  "Habit" : Habit,
+  "Wallus" : Wallus,
+  "Flowerkid" : Flowerkid
 }

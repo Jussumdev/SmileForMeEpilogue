@@ -22,9 +22,9 @@ def splitCustom(f):
     return f.split(',%%%,')
 
 def safeQuote(text):
-    return text[1:-1].replace("'", "\\'").replace('"', '\\"')
+    return text[:].replace('"', "''")
 
-def main(compact):
+def genText(compact):
     content = getContents(inputPath)
     lines = content.splitlines()[1:]
 
@@ -34,33 +34,36 @@ def main(compact):
         if (sp[0]==''):
             break
         name = sp[0]
-        text = sp[1]
+        text = sp[1].strip('"');
         event = sp[2]
         randomize = sp[3]
         attachments = sp[4].rstrip(',').split(',') if (sp[4]!=',') else '[]';
+
+        if ((len(attachments) == 1) and (attachments[0] == '')):
+            attachments = [];
 
         nt = '\n\t' if compact else '';
         n = '\n' if compact else '';
 
         func = ("email("+nt+
         "'"+name+"',"+nt+
-        "'"+safeQuote(text)+"',"+nt+
+        '"'+safeQuote(text)+'",'+nt+
         ""+str(attachments)+","+nt+
         ""+str(randomize)+","+nt+
         ""+str(event)+n+
         ");"+n*2)
 
         funcs+=func;
+    return funcs
 
-    print(funcs)
-
-    prefix = getContents(prefixPath)
+def main():
+    print(genText(True));
 
     writeContents(
         outputPath,
-        prefix + funcs
+        getContents(prefixPath) + genText(False)
     );
 
+
 if __name__ == "__main__":
-    # main(True)
-    main(False)
+    main()

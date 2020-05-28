@@ -1,19 +1,27 @@
 
+var lastEmailSentBefore = false;
 
 // takes in an email object and appends the appropriate html to the main page
 function initEmail(email, speeding, lastEmail) {
   document.getElementById("emailCloser").insertAdjacentHTML('beforebegin',generateEmailHTML(email));
   bumpUpRecipient(email.senderID);
   handleEvent(email.eventID, speeding);
-  if (lastEmail) {
+  if (lastEmail && lastEmailSentBefore) { //flower kid email
+    updateEmailCloser(3);
+  } else if (lastEmail) {
     updateEmailCloser(1);
-    setSendNotifDelay(3);
+    setSendNotifDelay(6);
+    lastEmailSentBefore = true;
   } else {
     updateEmailCloser(1);
     if (!speeding) {
-      setNotifDelay(3);
+      setNotifDelay(notifDelayFromText(email.text));
     }
   }
+}
+
+function notifDelayFromText() {
+  return lerp(1, 10, text.length/500);
 }
 
 function setNotifDelay(s) {
@@ -47,11 +55,18 @@ function updateEmailCloser(mode) {
       `;
       break;
     case 2:
-    html = `
-    <span class='' onclick='openComposeWindow()'>
-      <img class=inlineimg src='images/ui/new.gif'/> Compose new message
-    </span>
-    `;
+      html = `
+      <span class='' onclick='openComposeWindow()'>
+        <img class=inlineimg src='images/ui/new.gif'/> Compose new message
+      </span>
+      `;
+      break;
+    case 3:
+      html = `
+      <span class=noNewMail>
+        Free message limit reached
+      </span>
+      `;
       break;
     default:
       break;
@@ -86,21 +101,23 @@ function bumpUpRecipient(senderID) {
   var senderEl = document.getElementById(`recipientList${senderID}`);
   senderEl.remove();
   var recipientList = document.getElementById("recipientList");
-  recipientList.insertAdjacentHTML('afterbegin', genRecipientString(senderID, 100));
+  recipientList.insertAdjacentHTML('afterbegin', genRecipientString(senderID, true));
 }
 
 function initRecipientList() {
   var recipientList = document.getElementById("recipientList");
   for (var senderID in senderDictionary) {
-    recipientList.insertAdjacentHTML('beforeend',genRecipientString(senderID, 20));
+    recipientList.insertAdjacentHTML('beforeend',genRecipientString(senderID, false));
   }
 }
 
-function genRecipientString(senderID, opacity) {
+function genRecipientString(senderID, spoken) {
   var sender = senderDictionary[senderID];
+  var opacity = spoken ? 100 : 50;
+  var name = spoken ? (sender.name+"<br>") : "";
   return `
   <span style="opacity:${opacity}%" id = recipientList${senderID}>
-  ${sender.name}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  ${name}
   <span class="emailAddress">&lt${sender.email}&gt</span>
   <br>
   </span>
@@ -115,13 +132,24 @@ function genRecipientString(senderID, opacity) {
 function generateEmailHTML(email) {
   var sender = senderDictionary[email.senderID];
   var t = email.text;
-  t = t.replace('<song>','<a onclick="openMusicWindow()">platitudes.wav</a>');
+  t = t.replace('<i>','<span style="font-style: italic;">');
+  t = t.replace('</i>','</span>');
+  t = t.replace('<sh>','<span style="font-style: italic; opacity: 90%">');
+  t = t.replace('</sh>','</span>');
+  t = t.replace('<s>','<span style="font-style: italic;">');
+  t = t.replace('</s>','</span>');
+  t = t.replace('<playlist>','<a href="https://open.spotify.com/playlist/4U39LZliqZ8ISzBuhQG0n3?si=v8wyJZzVQqiOkiSW3XDtbg" target="_blank">Look at this one!</a>');
+  t = t.replace('<zine>','<a href="https://twitter.com/smileformezine" target="_blank">The Smile For Me Zine</a>');
+  t = t.replace('<letsplay>','<a href="https://www.youtube.com/watch?v=zTATKZUtKSw" target="_blank">SnapCube - Smile For Me</a>');
+  t = t.replace('<evangelion>','<a href="https://www.youtube.com/watch?v=CWcmBhmFHcY" target="_blank">Get in the Robot Kamal</a>');
+  t = t.replace('<platitudes>','<a onclick="openMusicWindow()">download (platitudes.wav)</a>');
 
   var emailHTML = fillTemplate(
     name=sender.name,
     subject=sender.email,
     profilesrc=sender.profPicSource,
-    profileimgdata=generateImagePopupData(sender.profPicName, sender.profPicAuthor, sender.profPicLink, sender.profPicAuthorLink, sender.profPicSource),
+    profileimgdata=generateImagePopupData(sender.profPicName, sender.profPicAuthor, sender.profPicLink, sender.profPicAuthorLink, 'images/profiles/expanded/'+sender.profPicSource),
+    hasProfilePic=sender.profPicName!='',
     text=t,
     attachmentHTML=(email.attachments == null) ? "" : generateAttachmentHTML(email.attachments)
   );

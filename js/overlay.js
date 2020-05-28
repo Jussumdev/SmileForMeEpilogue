@@ -12,14 +12,14 @@
 //Creates the data string that will be attached to a clickable photo in html
 function generateImagePopupData(imageName, authorName, imageLink, authorLink, imagePath) {
   var strings = [imageName, authorName, imageLink, authorLink, imagePath];
-  strings = strings.join("_");
+  strings = strings.join("~");
   return strings;
 }
 
 
 // Splits an imagePopupData string into a list of its components
 function splitImagePopupData(rawData) {
-  rawData = rawData.split('_');
+  rawData = rawData.split('~');
   return rawData;
 }
 
@@ -70,7 +70,7 @@ function waitForFullImageLoad(path) {
     resizeAttachmentWindow();
     openAttachmentWindow();
   }
-  largeImage.src = "images/profiles/expanded/"+path;
+  largeImage.src = path;
 }
 
 function resizeAttachmentWindow() {
@@ -169,6 +169,8 @@ function tryToConfirmRadio() {
       document.getElementById('canShare3').checked) {
     closeCurrentOverlay();
     closeCurrentOverlay();
+    email('Flowerkid', 'test', [], 0, 0);
+    newEmail(false);
   }
 }
 
@@ -334,8 +336,8 @@ function addLinkPopup() {
             </p>
           </div>
           <form class="EmailForm" target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-            <input type='hidden' name='redirect_to' value='https://smileformegame.com'></input>
-            <textarea id=composeText type='textarea' class="insetBorders" name='email' placeholder="Hey everyone... it's been a while.."></textarea>
+            <input type='hidden' name='redirect_to' value='https://TODO:OURURL/thankyou.html'></input>
+            <textarea id=composeText type='textarea' class="insetBorders" name='email' placeholder="Hey everyone... it's been a while.." tabIndex="-1"></textarea>
             <div class="submitParent">
               <div type='' value='Send Email' class="outsetBorders button" style="float:right;" onclick="openRadio()">Send Email</div>
             </div>

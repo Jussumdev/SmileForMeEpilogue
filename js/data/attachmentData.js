@@ -50,7 +50,7 @@ bigIron = {name: 'Big Iron',author: 'Wayne',sourceLink: 'https://twitter.com/Sur
 shilohCrowley = {name: 'Shiloh Crowley',author: 'Dile',sourceLink: 'https://twitter.com/Mayadile/status/1262179000010579970',authorLink: 'https://twitter.com/Mayadile',source: 'images/attachments/photos/ShilohCrowley.jpg'};
 hendrickPogram = {name: 'Hendrick Pogram',author: 'Dile',sourceLink: 'https://twitter.com/Mayadile/status/1262179000010579970',authorLink: 'https://twitter.com/Mayadile',source: 'images/attachments/photos/HendrickPogram.jpg'};
 cherRiffer = {name: 'Cher Riffer',author: 'Cheri',sourceLink: 'https://twitter.com/bonsaisonly/status/1262175486878367747',authorLink: 'https://twitter.com/bonsaisonly',source: 'images/attachments/photos/CherRiffer.jpg'};
-zipTramplin = {name: 'Zip Tramplin',author: 'WonderWeird',sourceLink: 'https://twitter.com/WondersWeirdWay/status/1262176561266135042',authorLink: 'https://twitter.com/WondersWeirdWay',source: 'images/attachments/photos/ZipTramplin.jpg'};
+zippTramplin = {name: 'Zipp Tramplin',author: 'WonderWeird',sourceLink: 'https://twitter.com/WondersWeirdWay/status/1262176561266135042',authorLink: 'https://twitter.com/WondersWeirdWay',source: 'images/attachments/photos/zippTramplin.jpg'};
 shaylaBerke = {name: 'Shayla Berke',author: 'Tori Matheson',sourceLink: 'https://twitter.com/Orbiborb/status/1262252150769569793',authorLink: 'https://twitter.com/Orbiborb',source: 'images/attachments/photos/ShaylaBerke.jpg'};
 marroSkavenge = {name: 'Marro Skavenge',author: 'Inkyteeth',sourceLink: 'https://twitter.com/inky_teeth/status/1262278418856652801',authorLink: 'https://twitter.com/inky_teeth',source: 'images/attachments/photos/MarroSkavenge.jpg'};
 lunaEClipse = {name: 'Luna E Clipse',author: 'Maurice',sourceLink: 'https://twitter.com/vegetiod/status/1262177847164141569',authorLink: 'https://twitter.com/vegetiod',source: 'images/attachments/photos/LunaEClipse.jpg'};
@@ -88,7 +88,7 @@ var attachmentDictionary = {
   'Shiloh Crowley':shilohCrowley,
   'Hendrick Pogram':hendrickPogram,
   'Cher Riffer':cherRiffer,
-  'Zip Tramplin':zipTramplin,
+  'Zipp Tramplin':zippTramplin,
   'Shayla Berke':shaylaBerke,
   'Marro Skavenge':marroSkavenge,
   'Luna E Clipse':lunaEClipse,
@@ -104,5 +104,5 @@ var attachmentDictionary = {
   'Percival Podsnappery':percivalPodsnappery,
   'JoojDraws':joojDraws,
   'Eggo Fekshun':eggoFekshun,
-  'Unnamed Photo':unnamedPhoto:
+  'Unnamed Photo':unnamedPhoto
 };
