@@ -1,71 +1,38 @@
 /* ======================================Link Popup======================================= */
-
-/* from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_overlay */
 .linkPopupParent {
-  z-index: 10;
+    z-index: 10;
   pointer-events: none;
-
-  position: fixed;
-    top:0cm;
-    left:0cm;
-    bottom:0cm;
-    right:0cm;
-
+  position: fixed;top:0cm;left:0cm;bottom:0cm;right:0cm;
   overflow: hidden;
 }
-
 .floatingWindow {
   box-shadow: 0.3cm 0.5cm 0px #11113340;
 }
-
 .popupBackground {
-  /* Altered at runtime */
-  display: none;
-
+  display: none;/* Altered at runtime */
   pointer-events: all;
-
-  position: absolute;
-    top:0cm;
-    left:0cm;
-    bottom:0cm;
-    right:0cm;
-
+  position: fixed;top:0cm;left:0cm;bottom:0cm;right:0cm;
   background-color: #00000040;
   box-shadow: inset 0 0 20px black;
 }
-
-
 /* ======================================Attachment window======================================= */
-
 .windowMover {
-  /* Altered at runtime */
-  display: none;
-
+  display: none;/* Altered at runtime */
   pointer-events: all;
-
-  /* resizeAttachmentWindow.js DEPENDS ON THESE VALUES! DON'T EDIT CARELESSLY */
-  width: 90vw;
-  height: 70vh;
-  max-width: 90vw;
-  max-height: 70vh;
-
+  /* overl.js depends on these values */
+  width: 90vw;max-width: 90vw;
+  height: 70vh;max-height: 70vh;
   /* center in parent div */
   position: fixed;
   left: 42%;
   top: 35%;
   transform: translate(-50%, -50%);
-  /* --- */
 }
-
 .windowSizer {
-  margin-left: 0%;
-  margin-right: 0%;
-  margin-top: 0%;
-  margin-bottom: 0%;
+  margin: 0%;
   width: 100%;
   height: 100%;
 }
-
 .imageContainer {
   height: calc(100% - 1em - 0.2cm);
   width: calc(100%);
@@ -78,17 +45,12 @@
 /* ======================================Credits footer======================================= */
 
 .ImageCredits {
-  /* Altered at runtime */
-  display: none;
-
+    z-index: 12;
+  display: none; /* Altered at runtime */
   pointer-events: all;
-
-  z-index: 12;
-
   position: fixed;
     left: 0px;
     bottom: 0px;
-
   width: 100%;
 }
 .ImageCreditsText {
@@ -106,25 +68,18 @@
   background: var(--content-background);
 }
 .musicTransform {
-  /* Altered at runtime */
-  display: none;
-
+  display: none;/* Altered at runtime */
   pointer-events: all;
-
   --unit: min(1vw, 1vh);
   --side: calc(var(--unit) * 50);
-  /* --posX: calc(var(--unit) * 50); */
-
   --side2: max(var(--side), min(10em, 90vw));
   width: var(--side2);
   height: var(--side2);
-
   /* center in parent div */
   position: fixed;
   left: 50%;
   top: calc(100% - 2em);
   transform: translate(-50%, -50%);
-  /* --- */
 }
 .albumDataArea {
   position: fixed;
@@ -169,42 +124,24 @@
   background: var(--content-background);
 }
 .composeTransform {
-  /* Altered at runtime */
-  /* display: none; */
-
   pointer-events: all;
-
-  /* --unit: min(1vw, 1vh);
-  --side: calc(var(--unit) * 80);
-  width: var(--side);
-  height: var(--side); */
-
+  width:80%;
+  height:80%;
   /* center in parent div */
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* --- */
-
-  width:80%;
-  height:80%;
 }
 
 input, textarea {
-  /* font-smooth: never; */
   -webkit-font-smoothing : none;
-
-  /* font-family: "mini-wakuwakuregular"; */
   font-family: "MicrosoftSansSerif";
   font-size: 0.4cm;
-
   text-shadow: 0px 0px 0.2em #633a3a;
-
   color: black;
-
   margin: 0px;
   padding: 4px;
-  /* font-family: serif; */
 }
 
 .EmailComposeContent {
@@ -244,15 +181,4 @@ input, textarea {
   width:calc(100% - 2 * var(--inset-width) - 8px);
   height: 10%;
   resize: none;
-}
-
-.composeTransform input[type=checkbox] {
-  float: left;
-  resize: none;
-  height: 1em;
-  width: 1em;
-  overflow: auto;
-}
-
-.composeTransform input[type=submit] {
 }

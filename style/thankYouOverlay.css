@@ -1,21 +1,14 @@
-
 .thankYouOverlay {
   position: fixed;
-  left:0px;
-  top:0px;
-  width:100%;
-  height:100%;
+  left:0px;top:0px;right:0px;bottom:0px;
+  overflow-x: wrap;overflow-y: scroll;
   background: black;
-  overflow-x: wrap;
-  overflow-y: scroll;
   opacity: 0;
   z-index: 20;
 }
-
 .thankYouContent {
   padding: 5%;
 }
-
 .thankYouContent p {
   text-align: center;
   font-size: 0.6cm;

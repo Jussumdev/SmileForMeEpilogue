@@ -275,7 +275,7 @@ function addLinkPopup() {
     <div class = popupBackground id = popupBG onclick = "closeCurrentOverlay()"></div>
 
     <div class = windowMover id = windowMover onclick = "closeCurrentOverlay()">
-      <div class = windowSizer id = windowSizer onclick = "closeCurrentOverlay()">
+      <div class = windowSizer id = windowSizer onclick = "">
         <div class = "screenBorder-Outset floatingWindow" style="background-color:var(--windows-background)">
           <div class = windowLabel onclick = "closeCurrentOverlay()">
             <p>Attachment Viewer v. 5.1.1
@@ -288,9 +288,9 @@ function addLinkPopup() {
       </div>
     </div>
 
-    <div class = musicTransform id = musicTransform onclick = "toggleMusicWindow()">
-      <div class = "screenBorder-Outset floatingWindow musicWindowBackground">
-        <div class = windowLabel>
+    <div class = musicTransform id = musicTransform onclick = "">
+      <div class = "screenBorder-Outset floatingWindow musicWindowBackground" onclick = "">
+        <div class = windowLabel onclick = "toggleMusicWindow()">
           <p>Super Pedal Music Player v.9.e
           </p>
         </div>

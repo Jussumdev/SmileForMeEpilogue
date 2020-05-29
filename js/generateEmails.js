@@ -158,9 +158,19 @@ function generateEmailHTML(email) {
     profileimgdata=generateImagePopupData(sender.profPicName, sender.profPicAuthor, sender.profPicLink, sender.profPicAuthorLink, 'images/profiles/expanded/'+sender.profPicSource),
     hasProfilePic=sender.profPicName!='',
     text=t,
-    attachmentHTML=(email.attachments == null) ? "" : generateAttachmentHTML(email.attachments)
+    attachmentHTML= generateAttachmentHTML(randomSelection(email.attachments, email.randomselection))
   );
   return emailHTML;
+}
+
+function randomSelection(list, num) {
+  if (num==0) {return list;}
+  var out = [];
+  var start = Math.floor(Math.random() * list.length);     // returns a random integer from 0 to num-1
+  for (var i=0;i<num;i++){
+    out[i]=list[start+i];
+  }
+  return out;
 }
 
 // Takes a list of attachment id strings in the form:

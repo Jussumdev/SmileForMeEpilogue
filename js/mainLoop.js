@@ -18,9 +18,26 @@ function setURLProgress(progress) {
   window.history.pushState("object or string", '', `index.html?progress=${progress}`);
 }
 
-function generateStartEmails() {
-  prog = Math.min(getURLProgress(), allEmails.length)
+var loadingBarDelay = 7000;
+
+function begin() {
+  prog = getURLProgress();
+  if (prog != 0) {
+    passLoadScreen()
+  } else {
+    setTimeout(function(){passLoadScreen();},loadingBarDelay);
+  }
+}
+
+function passLoadScreen() {
+  document.getElementById("loadingScreen").style="display:none;";
+  generateStartEmails();
+}
+
+function generateStartEmails(prog) {
+  prog = Math.min(getURLProgress(), allEmails.length);
   if (prog==0) {
+    updateEmailCount(0);
     updateEmailCloser(1);
     setNotifDelay(3);
   } else {
@@ -42,12 +59,12 @@ function newEmail(speeding) {
   }
 
   initEmail(allEmails[emailsOut], speeding, lastEmail);
-  updateEmailCount(emailsOut+1);
   emailsOut++;
+  updateEmailCount(emailsOut);
   if (!speeding) {
     setURLProgress(emailsOut);
   }
   window.scrollTo(0,document.body.scrollHeight);
 }
 
-addOnLoad(generateStartEmails);
+addOnLoad(begin);
