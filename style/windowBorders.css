@@ -179,7 +179,7 @@
   width: calc(100% - 0.2cm);
   white-space: nowrap;
   overflow: hidden;
-  background-color: var(--window-label);
+  background: var(--window-label);
 }
 .windowLabel p {
   color: var(--window-label-text);

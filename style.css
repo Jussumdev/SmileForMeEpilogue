@@ -227,8 +227,6 @@ html, div {
 .button {
   background: var(--button);
 }
-.button:hover {background: var(--button-hover);}
-.button:active {background: var(--button-active);}
 
 .button:hover, .button:active {
   border-left-color: var(--ridge-dark);

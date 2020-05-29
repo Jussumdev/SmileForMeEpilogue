@@ -7,7 +7,8 @@ function initEmail(email, speeding, lastEmail) {
   bumpUpRecipient(email.senderID);
   handleEvent(email.eventID, speeding);
   if (lastEmail && lastEmailSentBefore) { //flower kid email
-    updateEmailCloser(3);
+    updateEmailCloser(1);
+    setDoneNotifDelay(3);
   } else if (lastEmail) {
     updateEmailCloser(1);
     setSendNotifDelay(6);
@@ -33,6 +34,12 @@ function setNotifDelay(s) {
 function setSendNotifDelay(s) {
   setTimeout(function() {
     updateEmailCloser(2);
+  }, s * 1000);
+}
+
+function setDoneNotifDelay(s) {
+  setTimeout(function() {
+    updateEmailCloser(3);
   }, s * 1000);
 }
 

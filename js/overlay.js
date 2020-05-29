@@ -1,7 +1,5 @@
 
 
-
-
 // An imagePopupData string is in the form:
 //
 //    imageName_authorName_imageLink_authorLink_imagePath
@@ -16,14 +14,11 @@ function generateImagePopupData(imageName, authorName, imageLink, authorLink, im
   return strings;
 }
 
-
 // Splits an imagePopupData string into a list of its components
 function splitImagePopupData(rawData) {
   rawData = rawData.split('~');
   return rawData;
 }
-
-
 
 //================================================================================//
 
@@ -109,36 +104,53 @@ function toggleMusicWindow() {
   }
 }
 
-var timeOpened = "";
-
 function openAttachmentWindow() {
   document.getElementById("popupBG").style.display = "inline";
   document.getElementById("windowMover").style.display = "inline";
   document.getElementById("ImageCredits").style.display = "inline";
   overlayOpen = true;
-  timeOpened = (new Date()).getTime();
 }
+
 function openMusicWindow() {
+  if (composeOpen) {return;}
   document.getElementById("musicTransform").style.display = "inline";
   document.getElementById("popupBG").style.display = "inline";
   musicWindowOpen = true;
-  timeOpened = (new Date()).getTime();
 }
+function enableMusicWindow() {
+  document.getElementById("musicTransform").style.display = "inline";
+}
+
 function openComposeWindow() {
   document.getElementById("composeTransform").style.display = "inline";
   document.getElementById("popupBG").style.display = "inline";
   composeOpen = true;
 }
-function openRadio() {
+
+function tryBecomeConfirmButton(el) {
+  if (composeNotBlank()) {
+    el.innerHTML = "Confirm";
+    el.setAttribute("onclick", "submitEmail()");
+  } else {
+    alertNoEmailBody(el);
+  }
+}
+function composeNotBlank() {
   var writtenMail = document.getElementById("composeText").value.replace(/^\s+|\s+$/g,'');
-  if (writtenMail == '') {return;}
-  document.getElementById("radioParent").style.display = "inline";
-  radioParentOpen = true;
+  return (writtenMail != '');
+}
+function alertNoEmailBody(el) {
+  el.innerHTML = "There is no email body!";
+}
+function submitEmail() {
+  var writtenMail = document.getElementById("composeText").value;
+  closeCurrentOverlay();
+  //From https://stackoverflow.com/questions/5664503/replacing-newline-character-in-javascript
+  email('Flowerkid', writtenMail.replace(/\r?\n/g, "<br />"), [], 0, 0);
+  newEmail(false);
+  fadeInThankYou();
 }
 
-function enableMusicWindow() {
-  document.getElementById("musicTransform").style.display = "inline";
-}
 
 
 // Close
@@ -151,27 +163,13 @@ function closeCurrentOverlay() {
     setLetterBobbingEnabled(false);
     document.getElementById("popupBG").style.display = "none";
   } else if (musicWindowOpen) {
-    musicWindowOpen = false;
     document.getElementById("popupBG").style.display = "none";
-  } else if (radioParentOpen) {
-    radioParentOpen = false;
-    //DON'T turn off the background
+    musicWindowOpen = false;
   } else if (composeOpen) {
-    document.getElementById("composeTransform").style.display = "none";
     document.getElementById("popupBG").style.display = "none";
     composeOpen = false;
   }
-}
 
-function tryToConfirmRadio() {
-  if( document.getElementById('canShare1').checked ||
-      document.getElementById('canShare2').checked ||
-      document.getElementById('canShare3').checked) {
-    closeCurrentOverlay();
-    closeCurrentOverlay();
-    email('Flowerkid', 'test', [], 0, 0);
-    newEmail(false);
-  }
 }
 
 //==============================ATTACHMENT WINDOW UPDATE LOOP====================================//
@@ -225,7 +223,6 @@ function positionAttachmentWindowClosed() {
 //==============================MUSIC WINDOW UPDATE LOOP====================================//
 
 var musicWindowOpen = false;
-var radioParentOpen = false;
 var composeOpen = false;
 
 var dict = {};
@@ -263,7 +260,6 @@ window.setInterval(function(){
   scrollWaveBorder(thisFrameTime);
   positionCenteredElement("musicTransform", musicWindowOpen, 100, '- 2em', dt);
   positionCenteredElement("composeTransform", composeOpen, 100, '', dt);
-  positionCenteredElement("radioParent", radioParentOpen, 150, '', dt);
 
 }, 1000 / framerate);
 
@@ -303,13 +299,14 @@ function addLinkPopup() {
             <img class = "albumCover insetBorders" src = ""></img>
             <div class = "albumDataRight">
               <p>
-                Platitudes
+                Album: Unknown
+                <br>Artist: Unknown
+                <br>Track: Unknown
               </p>
             </div>
             <div class = "albumDataBottom">
               <p>
-                Album: Test this stuff
-                <br>Artist: Test this stuff
+                Platitudes_demo_export_FINAL2.mus
               </p>
             </div>
             <audio controls loop class="audioplayer">
@@ -332,35 +329,15 @@ function addLinkPopup() {
         </div>
         <div class = "EmailComposeContent">
           <div class = "composeRecipients">
-            <p> TO; everyone
+            <p> TO: everyone &lt 23 recipients &gt
             </p>
           </div>
-          <form class="EmailForm" target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-            <input type='hidden' name='redirect_to' value='https://TODO:OURURL/thankyou.html'></input>
+          <div class="EmailForm">
             <textarea id=composeText type='textarea' class="insetBorders" name='email' placeholder="Hey everyone... it's been a while.." tabIndex="-1"></textarea>
             <div class="submitParent">
-              <div type='' value='Send Email' class="outsetBorders button" style="float:right;" onclick="openRadio()">Send Email</div>
+              <div type='' value='Send Email' class="outsetBorders button" style="float:right;" onclick="tryBecomeConfirmButton(this)">Send Email</div>
             </div>
-            <div class="radioParent" id=radioParent>
-              <p class=maskOff>
-                Send a copy of your response to LimboLane?
-                Some messages might be posted anonymously in the future.
-              </p>
-              <input type='radio' name='canShare' id='canShare1' value='yes' required></input>
-                <label for="yes" class=maskOff>Sure!</label>
-              <br>
-              <input type='radio' name='canShare' id='canShare2' value='yesNoPost'></input>
-                <label for="yesNoPost" class=maskOff>Send it, but please don't post!</label>
-              <br>
-              <input type='radio' name='canShare' id='canShare3' value='no'></input>
-                <label for="no" class=maskOff>No thanks</label>
-              <br>
-              <p class=maskOff>
-                <input type='submit' value='Confirm' class=maskOff onclick="tryToConfirmRadio()"></input>
-                <a onclick="closeCurrentOverlay()">Keep editing</a>
-              </p>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

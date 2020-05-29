@@ -1,22 +1,18 @@
 div, body, html {
-  --ridge-light: #99bfc1;
+  --ridge-light: hsl(150, 11%, 72%);
   --ridge-flat: #799c9c;
-  --ridge-dark: #233e37;
-  --windows-background: #496561;
-  --content-background: #dfdcc0;
+  --ridge-dark: #3c5653;
+  --windows-background: #4e6b57;
+  --content-background: #dcccb7;
   /* --html-background: var(--content-background); */
   --html-background: black;
-
-  --window-label: #3d58ff;
+  --window-label: linear-gradient(90deg, #55427bff 0%, #794d5f 100%);
   /* --window-label-text: #99bfc1; */
-  --window-label-text: white;
-
-  --email-header: #799c9c;
-
-  --floating-window-text: white;
+  --window-label-text: #efd7d7;
+  --email-header: #749c94;
+  --floating-window-text: #dcccb8;
   --floating-window-textbox: white;
   --floating-window-textbox: var(--windows-background);
-
   --button: white;
   --button-hover: grey;
   --button-active: black;

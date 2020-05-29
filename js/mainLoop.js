@@ -44,7 +44,9 @@ function newEmail(speeding) {
   initEmail(allEmails[emailsOut], speeding, lastEmail);
   updateEmailCount(emailsOut+1);
   emailsOut++;
-  setURLProgress(emailsOut);
+  if (!speeding) {
+    setURLProgress(emailsOut);
+  }
   window.scrollTo(0,document.body.scrollHeight);
 }
 

@@ -160,7 +160,7 @@
   left:0px;
   width:100%;
   height:10%;
-  background: white;
+  background: transparent;
 }
 
 /* ======================================Compose window======================================= */
@@ -190,16 +190,7 @@
   height:80%;
 }
 
-@media all and (max-width: 100vh) {
-  .composeTransform {
-    /* left:10%;
-    width:80%;
-    top:20%;
-    height:60%; */
-  }
-}
-
-form input, form textarea, form div {
+input, textarea {
   /* font-smooth: never; */
   -webkit-font-smoothing : none;
 
@@ -245,7 +236,7 @@ form input, form textarea, form div {
 .composeTransform textarea {
   width:calc(100% - 2 * var(--inset-width) - 8px);
   resize: none;
-  height:calc(60% - 2 * var(--inset-width) - 8px);
+  height:calc(90% - 2 * var(--inset-width) - 8px);
   overflow: auto;
 }
 
@@ -253,29 +244,6 @@ form input, form textarea, form div {
   width:calc(100% - 2 * var(--inset-width) - 8px);
   height: 10%;
   resize: none;
-}
-
-.radioParent {
-  /* Altered at runtime */
-  display: none;
-
-  pointer-events: all;
-
-  --unit: min(1vw, 1vh);
-  --side: calc(var(--unit) * 50);
-  /* --posX: calc(var(--unit) * 50); */
-
-  width: var(--side);
-  height: var(--side);
-
-  /* center in parent div */
-  position: absolute;
-  left: 50%;
-  top: calc(100%);
-  transform: translate(-50%, -50%);
-  /* --- */
-
-  background: black;
 }
 
 .composeTransform input[type=checkbox] {
