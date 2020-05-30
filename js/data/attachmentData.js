@@ -106,3 +106,83 @@ var attachmentDictionary = {
   'Eggo Fekshun':eggoFekshun,
   'Unnamed Photo':unnamedPhoto
 };
+
+var Dallas = {
+name:             'A lovely Dally!'
+,author:          'Tobias'
+,sourceLink:      'https://parsleyrosemarybotch.tumblr.com/post/190142402999/the-more-i-draw-dallas-the-less-he-looks-like-a'
+,authorLink:      'https://parsleyrosemarybotch.tumblr.com'
+,source:          'images/attachments/dallas.png'
+};
+
+var Parsley1 = {
+name:             'The precarious predicament of Parsley Botch'
+,author:          'Abb'
+,sourceLink:      'https://tomatoart.tumblr.com/post/189412208815/i-almost-shed-a-tear-when-he-didnt-take-it'
+,authorLink:      'https://tomatoart.tumblr.com'
+,source:          'images/attachments/parsley1.png'
+};
+
+var Parsley2 = {
+name:             'Hangry'
+,author:          'Py'
+,sourceLink:      'https://yellow-py.tumblr.com/post/187903517237/ughnnhgngnh-tiff-and-parmesan'
+,authorLink:      'https://yellow-py.tumblr.com'
+,source:          'images/attachments/parsley2.jpg'
+};
+
+var Parsley3 = {
+name:             'Lost in the sauce'
+,author:          'pabitcravesteeth'
+,sourceLink:      'https://pabitcravesteeth.tumblr.com/post/187953716476'
+,authorLink:      'https://pabitcravesteeth.tumblr.com'
+,source:          'images/attachments/parsley3.png'
+};
+
+var Gerry = {
+name:             'BABY CRIMES'
+,author:          'Pan'
+,sourceLink:      'https://8oyz.tumblr.com/post/187991547080/little-imp-kids'
+,authorLink:      'https://8oyz.tumblr.com'
+,source:          'images/attachments/gerry.png'
+};
+
+var Kamal1 = {
+name:             'A bundle of Kamals'
+,author:          'JJ'
+,sourceLink:      'https://stilettomafiosas.tumblr.com/post/187108477259/holds-out-hand-may-i-interest-you-in-a-him'
+,authorLink:      'https://stilettomafiosas.tumblr.com'
+,source:          'images/attachments/kamal.png'
+};
+
+var Kamal2 = {
+name:             'Pawbs'
+,author:          'Russell'
+,sourceLink:      'https://twitter.com/vaporvvaves/status/1261816984699678720?s=20'
+,authorLink:      'https://twitter.com/vaporvvaves'
+,source:          'images/attachments/kamal2.jpg'
+};
+
+var Kamal3 = {
+name:             'Busy day at work'
+,author:          'RHD'
+,sourceLink:      'https://twitter.com/redhounddogs/status/1261879800299491329?s=20'
+,authorLink:      'https://twitter.com/redhounddogs'
+,source:          'images/attachments/kamal3.jpg'
+};
+
+var Kamal4 = {
+name:             'Even more Kamals'
+,author:          'Faun'
+,sourceLink:      'https://twitter.com/FaunBuns/status/1225214127502692352?s=20'
+,authorLink:      'https://twitter.com/FaunBuns'
+,source:          'images/attachments/kamal4.jpg'
+};
+
+var Trencil = {
+name:             'VAMPIRE EVIDENCE'
+,author:          'Lee'
+,sourceLink:      'https://leestei.tumblr.com/post/188907817006/coupla-furries'
+,authorLink:      'https://leestei.tumblr.com'
+,source:          'images/attachments/trencil.jpg'
+};
