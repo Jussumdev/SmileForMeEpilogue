@@ -155,7 +155,7 @@ function generateEmailHTML(email) {
     name=sender.name,
     subject=sender.email,
     profilesrc=sender.profPicSource,
-    profileimgdata=generateImagePopupData(sender.profPicName, sender.profPicAuthor, sender.profPicLink, sender.profPicAuthorLink, 'images/profiles/expanded/'+sender.profPicSource),
+    profileimgdata=generateImagePopupData(sender.profPicName, sender.profPicAuthor, sender.profPicLink, sender.profPicAuthorLink, 'images/profiles/Expanded/'+sender.profPicSource),
     hasProfilePic=sender.profPicName!='',
     text=t,
     attachmentHTML= generateAttachmentHTML(randomSelection(email.attachments, email.randomselection))
