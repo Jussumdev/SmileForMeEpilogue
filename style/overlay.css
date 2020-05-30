@@ -70,11 +70,9 @@
 .musicTransform {
   display: none;/* Altered at runtime */
   pointer-events: all;
-  --unit: min(1vw, 1vh);
-  --side: calc(var(--unit) * 50);
-  --side2: max(var(--side), min(10em, 90vw));
-  width: var(--side2);
-  height: var(--side2);
+  --side: min(90vw, 50vh);
+  width: var(--side);
+  height: var(--side);
   /* center in parent div */
   position: fixed;
   left: 50%;

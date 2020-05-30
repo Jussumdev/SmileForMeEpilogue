@@ -10,13 +10,13 @@
 //Creates the data string that will be attached to a clickable photo in html
 function generateImagePopupData(imageName, authorName, imageLink, authorLink, imagePath) {
   var strings = [imageName, authorName, imageLink, authorLink, imagePath];
-  strings = strings.join("~");
+  strings = strings.join("~~~");
   return strings;
 }
 
 // Splits an imagePopupData string into a list of its components
 function splitImagePopupData(rawData) {
-  rawData = rawData.split('~');
+  rawData = rawData.split('~~~');
   return rawData;
 }
 
@@ -304,17 +304,17 @@ function addLinkPopup() {
         </div>
         <div class = imageContainer>
           <div class = albumDataArea>
-            <img class = "albumCover insetBorders" src = ""></img>
+            <img class = "albumCover insetBorders" src = "images/ui/defaultalbum.png"></img>
             <div class = "albumDataRight">
               <p>
-                Album: Unknown
-                <br>Artist: Unknown
-                <br>Track: Unknown
+                Album: <span style="opacity:0.5">Unknown</span>
+                <br>Artist: <span style="opacity:0.5">Unknown</span>
+                <br>Track: <span style="opacity:0.5">Unknown</span>
               </p>
             </div>
             <div class = "albumDataBottom">
               <p>
-                Platitudes_demo_export_FINAL2.mus
+                Platitudes_final_FINAL2.mus
               </p>
             </div>
             <audio controls id=audio class="audioplayer" onended="loadLoopingMusic()">
@@ -332,7 +332,7 @@ function addLinkPopup() {
     <div class = "composeTransform" id = composeTransform>
       <div class = "screenBorder-Outset floatingWindow composeWindowBackground">
         <div class = windowLabel onclick = "closeCurrentOverlay()">
-          <p>What's new, flower child?
+          <p>Compose New Message
           </p>
         </div>
         <div class = "EmailComposeContent">

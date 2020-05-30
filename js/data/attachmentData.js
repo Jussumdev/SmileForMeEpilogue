@@ -41,7 +41,7 @@ var kamal5 = {name: 'Kamal',author: 'ToonLemon',sourceLink: 'https://smile-for-m
 var trencil = {name: 'VAMPIRE EVIDENCE',author: 'Lee',sourceLink: 'https://leestei.tumblr.com/post/188907817006/coupla-furries',authorLink: 'https://leestei.tumblr.com',source: 'images/attachments/trencil.jpg'};
 var marvfish = {name: 'fish',author: '???',sourceLink: 'https://en.wikipedia.org/wiki/Fish',authorLink: 'https://en.wikipedia.org/wiki/Fish',source: 'images/attachments/marvfish.png'};
 var habitStatue = {name: 'Ketchup Stains',author: 'Cadaver Crafts',sourceLink: 'https://cadavercrafts.tumblr.com/post/187883926253/dr-boris-habit-with-his-little-puppet-friend',authorLink: 'https://cadavercrafts.tumblr.com/',source: 'images/attachments/habitStatue.jpeg'};
-var habitPillow = {name: 'Habit Pillow',author: 'Lynxsoda',sourceLink: 'https://instagram.com/p/B65mZKzlFV8/',authorLink: 'https://instagram.com/lynxsoda',source: 'images/attachments/habitPillow.png'};
+var habitPillow = {name: 'Habit Pillow',author: 'Lynxsoda',sourceLink: 'https://instagram.com/p/B65mZKzlFV8/',authorLink: 'https://instagram.com/lynxsoda',source: 'images/attachments/habitPillow.jpeg'};
 
 var attachmentDictionary = {
     //polaroids
