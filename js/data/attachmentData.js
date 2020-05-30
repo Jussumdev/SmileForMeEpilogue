@@ -39,9 +39,10 @@ var kamal3 = {name: 'Busy day at work',author: 'RHD',sourceLink: 'https://twitte
 var kamal4 = {name: 'Even more Kamals',author: 'Faun',sourceLink: 'https://twitter.com/FaunBuns/status/1225214127502692352?s=20',authorLink: 'https://twitter.com/FaunBuns',source: 'images/attachments/kamal4.jpg'};
 var kamal5 = {name: 'Kamal',author: 'ToonLemon',sourceLink: 'https://smile-for-me-zine.itch.io/',authorLink: 'https://toonlemon.tumblr.com/',source: 'images/attachments/kamal5.png'};
 var trencil = {name: 'VAMPIRE EVIDENCE',author: 'Lee',sourceLink: 'https://leestei.tumblr.com/post/188907817006/coupla-furries',authorLink: 'https://leestei.tumblr.com',source: 'images/attachments/trencil.jpg'};
-var marvfish = {name: 'fish',author: '???',sourceLink: 'https://en.wikipedia.org/wiki/Fish',authorLink: 'https://en.wikipedia.org/wiki/Fish',source: 'images/attachments/marvfish.png'};
+var marvfish = {name: '',author: '',sourceLink: '',authorLink: '',source: 'images/attachments/marvfish.png'};
 var habitStatue = {name: 'Ketchup Stains',author: 'Cadaver Crafts',sourceLink: 'https://cadavercrafts.tumblr.com/post/187883926253/dr-boris-habit-with-his-little-puppet-friend',authorLink: 'https://cadavercrafts.tumblr.com/',source: 'images/attachments/habitStatue.jpeg'};
 var habitPillow = {name: 'Habit Pillow',author: 'Lynxsoda',sourceLink: 'https://instagram.com/p/B65mZKzlFV8/',authorLink: 'https://instagram.com/lynxsoda',source: 'images/attachments/habitPillow.jpeg'};
+var randypoem = {name: '',author: '',sourceLink: '',authorLink: '',source: 'images/attachments/randypoem.png'};
 
 var attachmentDictionary = {
     //polaroids
@@ -87,5 +88,6 @@ var attachmentDictionary = {
   'trencil':trencil,
   'marvfish':marvfish,
   'habitStatue':habitStatue,
-  'habitPillow':habitPillow
+  'habitPillow':habitPillow,
+  'randypoem':randypoem
 };

@@ -28,33 +28,34 @@ function addLinkPopup() {
           <span id=pp18>You make us smile</span>
           <br><br>
           <span id=pp19>One more thing.</span>
-          <br><br>
         </p>
-        <p class=maskOff id=pp20>
-          We would love to see what you had to say to the characters of The Habitat. Are you comfortable sharing with us the email you sent? It may be anonymously posted.
-          <br>
-        </p>
-        <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-          <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
-          <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
-          <input type='text' style='display:none;' name='canShare' value='Consent to Sharing' tabIndex="-1"></textarea>
-          <br>
+        <div id=pp20>
           <p class=maskOff>
-            <input type='submit' value="Yes, forward to LimboLane! Sharing is ok." class=maskOff></input>
+            We would love to see what you had to say to the characters of The Habitat. Are you comfortable sharing with us the email you sent? It may be anonymously posted.
+            <br>
           </p>
-        </form>
-        <p class=maskOff>
-          <br>Or, if you want us to keep it private:
-        </p>
-        <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-          <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
-          <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
-          <input type='text' style='display:none;' name='canShare' value='No Sharing' tabIndex="-1"></textarea>
-          <br>
+          <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
+            <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
+            <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
+            <input type='text' style='display:none;' name='canShare' value='Consent to Sharing' tabIndex="-1"></textarea>
+            <br>
+            <p class=maskOff>
+              <input type='submit' value="Yes, forward to LimboLane! Sharing is ok." class=maskOff></input>
+            </p>
+          </form>
           <p class=maskOff>
-            <input type='submit' value="For LL's eyes only!" class=maskOff></input>
+            <br>Or, if you want us to keep it private:
           </p>
-        </form>
+          <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
+            <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
+            <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
+            <input type='text' style='display:none;' name='canShare' value='No Sharing' tabIndex="-1"></textarea>
+            <br>
+            <p class=maskOff>
+              <input type='submit' value="For LL's eyes only!" class=maskOff></input>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   `;
@@ -80,13 +81,13 @@ function updateOpacity() {
   thisFrameTime = (new Date()).getTime() / 1000;
   var prog = thisFrameTime - openedTime;
 
-  var op1 = lerp(0, 1, (prog-2)/5);
+  var op1 = lerp(0, 1, (prog - 4)/5);
   document.getElementById("ThankYouOverlay").style = `opacity: ${op1};`;
 
   for (var i = 0; i < 25; i++) {
     var e = document.getElementById("pp"+(i+1));
     if (e == null) {continue;}
-    var p = (prog-(6+(4*i))) / 3;
+    var p = (prog - 10 - (4*i)) / 3;
     var d = (p > 0) ? 'block' : 'none';
     e.style = `opacity: ${p}; display: ${d}`;
   }

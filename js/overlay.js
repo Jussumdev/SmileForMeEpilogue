@@ -35,8 +35,10 @@ function openImageLink(el) {
   var imageLink = rawData[2];
   var authorLink = rawData[3];
   var path = rawData[4];
+  var credt = true;
   populateAttachmentWindow(imageName, authorName, imageLink, authorLink);
-  waitForFullImageLoad(path);
+  var credit = (imageName != '');
+  waitForFullImageLoad(path, credit);
 }
 
 //================================================================================//
@@ -59,11 +61,11 @@ function populateAttachmentWindow(imageName, authorName, imageLink, authorLink) 
   setLetterBobbingEnabled(true);
 }
 
-function waitForFullImageLoad(path) {
+function waitForFullImageLoad(path, credit) {
   var largeImage = document.getElementById("imagePopupImg");
   largeImage.onload = function() {
     resizeAttachmentWindow();
-    openAttachmentWindow();
+    openAttachmentWindow(credit);
   }
   largeImage.src = path;
 }
@@ -111,10 +113,10 @@ function loadLoopingMusic() {
   a.play();
 }
 
-function openAttachmentWindow() {
+function openAttachmentWindow(credit) {
   document.getElementById("popupBG").style.display = "inline";
   document.getElementById("windowMover").style.display = "inline";
-  document.getElementById("ImageCredits").style.display = "inline";
+  document.getElementById("ImageCredits").style.display = credit ? "inline" : "none";
   overlayOpen = true;
 }
 
@@ -299,7 +301,7 @@ function addLinkPopup() {
     <div class = musicTransform id = musicTransform onclick = "">
       <div class = "screenBorder-Outset floatingWindow musicWindowBackground" onclick = "">
         <div class = windowLabel onclick = "toggleMusicWindow()">
-          <p>Super Pedal Music Player v.9.e
+          <p>Super Petal Music Player v.9.e
           </p>
         </div>
         <div class = imageContainer>
