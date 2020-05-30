@@ -210,7 +210,8 @@ function positionAttachmentWindow(dt, frameTime) {
 }
 
 function scrollWaveBorder(frameTime) {
-  document.getElementById("wavePattern").setAttribute('x', frameTime / 10 % 160);
+  var a = document.getElementById("wavePattern");
+  if (a!=null) {a.setAttribute('x', frameTime / 10 % 160);}
 }
 
 function positionAttachmentWindowClosed() {
@@ -289,7 +290,7 @@ function addLinkPopup() {
             </p>
           </div>
           <div class = imageContainer>
-            <img class = "imagePopupImg insetBorders" id = imagePopupImg></img>
+            <img class = "imagePopupImg insetBorders" id = imagePopupImg onclick=""></img>
           </div>
         </div>
       </div>

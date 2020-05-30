@@ -1,43 +1,3 @@
-//Contains all the data for all of the attachments which can appear in the emails
-
-// Add new attachment objects here with UNIQUE ids
-var test = {
-name:             'Test Attachment'
-,author:          'Teste McTester'
-,sourceLink:      'google.com'
-,authorLink:      'google.com'
-,source:          'images/attachments/photos/___.jpg'
-};
-var test2 = {
-name:             'Test Attachment'
-,author:          'Teste McTester'
-,sourceLink:      'google.com'
-,authorLink:      'google.com'
-,source:          'images/attachments/photos/___.jpg'
-};
-
-// To format a variable in the form:
-//
-// var test2 = {
-// name:             'Test Attachment'
-// ,author:          'Teste McTester'
-// ,sourceLink:      'google.com'
-// ,authorLink:      'google.com'
-// ,source:          'images/attachments/photos/___.jpg'
-// };
-//
-// into a dictionary entry,
-// replace
-//    [ ]*=[ ]*{[a-zA-Z0-9 \n\t\r\f\s: ]*
-// with
-//    :
-// then replace
-//    ,[a-zA-Z0-9 \n\t\r\f\s:',.:/_-]*};
-// with
-//    ,
-// then move the items around
-
-
 //polaroids
 var emmyBrujita = {name: 'Emmy Brujita',author: 'FrootRollUp1',sourceLink: 'https://twitter.com/FrootRollUp1/status/1262185135128162304',authorLink: 'https://twitter.com/FrootRollUp1',source: 'images/attachments/photos/EmmyBrujita.jpg'};
 var scoutSkotch = {name: 'Scout Skotch',author: 'Lake',sourceLink: 'https://twitter.com/QuurlyBug/status/1262207562839187459',authorLink: 'https://twitter.com/QuurlyBug',source: 'images/attachments/photos/ScoutSkotch.jpg'};
@@ -67,26 +27,23 @@ var joojDraws = {name: 'JoojDraws',author: 'Jooj',sourceLink: 'https://twitter.c
 var eggoFekshun = {name: 'Eggo Fekshun',author: 'Echo',sourceLink: 'https://twitter.com/e_bip/status/1262198948241891328',authorLink: 'https://twitter.com/e_bip',source: 'images/attachments/photos/EggoFekshun.jpg'};
 var unnamedPhoto = {name: 'Unnamed Photo',author: 'Shelby',sourceLink: 'https://twitter.com/shelbyuhh/status/1262180238068416512',authorLink: 'https://twitter.com/shelbyuhh',source: 'images/attachments/photos/Unnamed.jpg'};
 
-var dallas = {name: 'A lovely Dally',author: 'Tobias',sourceLink: 'https: //parsleyrosemarybotch.tumblr.com/post/190142402999/the-more-i-draw-dallas-the-less-he-looks-like-a',authorLink: 'https: //parsleyrosemarybotch.tumblr.com',source: 'images/attachments/dallas.png'};
-var parsley1 = {name: 'Precarious Predicament of Parsley',author: 'Abb',sourceLink: 'https: //tomatoart.tumblr.com/post/189412208815/i-almost-shed-a-tear-when-he-didnt-take-it',authorLink: 'https: //tomatoart.tumblr.com',source: 'images/attachments/parsley1.png'};
-var parsley2 = {name: 'Hangry',author: 'Py',sourceLink: 'https: //yellow-py.tumblr.com/post/187903517237/ughnnhgngnh-tiff-and-parmesan',authorLink: 'https: //yellow-py.tumblr.com',source: 'images/attachments/parsley2.jpg'};
-var parsley3 = {name: 'Lost in the sauce',author: 'pabitcravesteeth',sourceLink: 'https: //pabitcravesteeth.tumblr.com/post/187953716476',authorLink: 'https: //pabitcravesteeth.tumblr.com',source: 'images/attachments/parsley3.png'};
-var gerry = {name: 'Baby Crimes',author: 'Pan',sourceLink: 'https: //8oyz.tumblr.com/post/187991547080/little-imp-kids',authorLink: 'https: //8oyz.tumblr.com',source: 'images/attachments/gerry.png'};
-var kamal1 = {name: 'A bundle of Kamals',author: 'JJ',sourceLink: 'https: //stilettomafiosas.tumblr.com/post/187108477259/holds-out-hand-may-i-interest-you-in-a-him',authorLink: 'https: //stilettomafiosas.tumblr.com',source: 'images/attachments/kamal.png'};
-var kamal2 = {name: 'Paws',author: 'Russell',sourceLink: 'https: //twitter.com/vaporvvaves/status/1261816984699678720?s=20',authorLink: 'https: //twitter.com/vaporvvaves',source: 'images/attachments/kamal2.jpg'};
-var kamal3 = {name: 'Busy day at work',author: 'RHD',sourceLink: 'https: //twitter.com/redhounddogs/status/1261879800299491329?s=20',authorLink: 'https: //twitter.com/redhounddogs',source: 'images/attachments/kamal3.jpg'};
-var kamal4 = {name: 'Even more Kamals',author: 'Faun',sourceLink: 'https: //twitter.com/FaunBuns/status/1225214127502692352?s=20',authorLink: 'https: //twitter.com/FaunBuns',source: 'images/attachments/kamal4.jpg'};
-var trencil = {name: 'VAMPIRE EVIDENCE',author: 'Lee',sourceLink: 'https: //leestei.tumblr.com/post/188907817006/coupla-furries',authorLink: 'https: //leestei.tumblr.com',source: 'images/attachments/trencil.jpg'};
+var dallas = {name: 'A lovely Dally',author: 'Tobias',sourceLink: 'https://parsleyrosemarybotch.tumblr.com/post/190142402999/the-more-i-draw-dallas-the-less-he-looks-like-a',authorLink: 'https://parsleyrosemarybotch.tumblr.com',source: 'images/attachments/dallas.png'};
+var parsley1 = {name: 'Precarious Predicament of Parsley',author: 'Abb',sourceLink: 'https://tomatoart.tumblr.com/post/189412208815/i-almost-shed-a-tear-when-he-didnt-take-it',authorLink: 'https://tomatoart.tumblr.com',source: 'images/attachments/parsley1.png'};
+var parsley2 = {name: 'Hangry',author: 'Py',sourceLink: 'https://yellow-py.tumblr.com/post/187903517237/ughnnhgngnh-tiff-and-parmesan',authorLink: 'https://yellow-py.tumblr.com',source: 'images/attachments/parsley2.jpg'};
+var parsley3 = {name: 'Lost in the sauce',author: 'pabitcravesteeth',sourceLink: 'https://pabitcravesteeth.tumblr.com/post/187953716476',authorLink: 'https://pabitcravesteeth.tumblr.com',source: 'images/attachments/parsley3.png'};
+var parsley4 = {name: 'Parsley and Jimothan',author: 'Alanide',sourceLink: 'https://smile-for-me-zine.itch.io/',authorLink: 'https://twitter.com/Overseer_Vee',source: 'images/attachments/parsley4.png'};
+var gerry = {name: 'Baby Crimes',author: 'Pan',sourceLink: 'https://8oyz.tumblr.com/post/187991547080/little-imp-kids',authorLink: 'https://8oyz.tumblr.com',source: 'images/attachments/gerry.png'};
+var kamal1 = {name: 'A bundle of Kamals',author: 'JJ',sourceLink: 'https://stilettomafiosas.tumblr.com/post/187108477259/holds-out-hand-may-i-interest-you-in-a-him',authorLink: 'https://stilettomafiosas.tumblr.com',source: 'images/attachments/kamal.png'};
+var kamal2 = {name: 'Paws',author: 'Russell',sourceLink: 'https://twitter.com/vaporvvaves/status/1261816984699678720?s=20',authorLink: 'https://twitter.com/vaporvvaves',source: 'images/attachments/kamal2.jpg'};
+var kamal3 = {name: 'Busy day at work',author: 'RHD',sourceLink: 'https://twitter.com/redhounddogs/status/1261879800299491329?s=20',authorLink: 'https://twitter.com/redhounddogs',source: 'images/attachments/kamal3.jpg'};
+var kamal4 = {name: 'Even more Kamals',author: 'Faun',sourceLink: 'https://twitter.com/FaunBuns/status/1225214127502692352?s=20',authorLink: 'https://twitter.com/FaunBuns',source: 'images/attachments/kamal4.jpg'};
+var kamal5 = {name: 'Kamal',author: 'ToonLemon',sourceLink: 'https://smile-for-me-zine.itch.io/',authorLink: 'https://toonlemon.tumblr.com/',source: 'images/attachments/kamal5.png'};
+var trencil = {name: 'VAMPIRE EVIDENCE',author: 'Lee',sourceLink: 'https://leestei.tumblr.com/post/188907817006/coupla-furries',authorLink: 'https://leestei.tumblr.com',source: 'images/attachments/trencil.jpg'};
+var marvfish = {name: 'fish',author: '???',sourceLink: 'https://en.wikipedia.org/wiki/Fish',authorLink: 'https://en.wikipedia.org/wiki/Fish',source: 'images/attachments/marvfish.png'};
+var habitStatue = {name: 'Ketchup Stains',author: 'Cadaver Crafts',sourceLink: 'https://cadavercrafts.tumblr.com/post/187883926253/dr-boris-habit-with-his-little-puppet-friend',authorLink: 'https://cadavercrafts.tumblr.com/',source: 'images/attachments/habitStatue.jpeg'};
+var habitPillow = {name: 'Habit Pillow',author: 'Lynxsoda',sourceLink: 'https://instagram.com/p/B65mZKzlFV8/',authorLink: 'https://instagram.com/lynxsoda',source: 'images/attachments/habitPillow.png'};
 
-
-//Here, write an entry in the format:
-//
-//      "id_name" : id_name ,
-//
 var attachmentDictionary = {
-  "test" : test,
-  "test2" : test2,
-
     //polaroids
   'Emmy Brujita':emmyBrujita,
   'Scout Skotch':scoutSkotch,
@@ -120,10 +77,15 @@ var attachmentDictionary = {
   'parsley1':parsley1,
   'parsley2':parsley2,
   'parsley3':parsley3,
+  'parsley4':parsley4,
   'gerry':gerry,
   'kamal1':kamal1,
   'kamal2':kamal2,
   'kamal3':kamal3,
   'kamal4':kamal4,
-  'trencil':trencil
+  'kamal5':kamal5,
+  'trencil':trencil,
+  'marvfish':marvfish,
+  'habitStatue':habitStatue,
+  'habitPillow':habitPillow
 };

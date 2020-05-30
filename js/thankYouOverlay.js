@@ -29,29 +29,29 @@ function addLinkPopup() {
           <br><br>
           <span id=pp19>One more thing.</span>
           <br><br>
-          <span id=pp20>
+        </p>
+        <p class=maskOff id=pp20>
           We would love to see what you had to say to the characters of The Habitat. Are you comfortable sharing with us the email you sent? It may be anonymously posted.
-          </span>
           <br>
         </p>
         <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-          <input type='hidden' name='redirect_to' value='https:smilefor.us/thankyou.html'></input>
+          <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
           <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
           <input type='text' style='display:none;' name='canShare' value='Consent to Sharing' tabIndex="-1"></textarea>
           <br>
-          <p class=maskOff id=pp21>
+          <p class=maskOff>
             <input type='submit' value="Yes, forward to LimboLane! Sharing is ok." class=maskOff></input>
           </p>
         </form>
-        <p class=maskOff id=pp22>
+        <p class=maskOff>
           <br>Or, if you want us to keep it private:
         </p>
         <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-          <input type='hidden' name='redirect_to' value='https:smilefor.us/thankyou.html'></input>
+          <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
           <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
           <input type='text' style='display:none;' name='canShare' value='No Sharing' tabIndex="-1"></textarea>
           <br>
-          <p class=maskOff id=pp23>
+          <p class=maskOff>
             <input type='submit' value="For LL's eyes only!" class=maskOff></input>
           </p>
         </form>
@@ -86,7 +86,7 @@ function updateOpacity() {
   for (var i = 0; i < 25; i++) {
     var e = document.getElementById("pp"+(i+1));
     if (e == null) {continue;}
-    var p = (prog-(6+(3.5*i))) / 3;
+    var p = (prog-(6+(4*i))) / 3;
     var d = (p > 0) ? 'block' : 'none';
     e.style = `opacity: ${p}; display: ${d}`;
   }
