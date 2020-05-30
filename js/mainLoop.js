@@ -15,7 +15,7 @@ function setURLProgress(progress) {
   // const queryString = window.location.search;
   // const urlParams = new URLSearchParams(queryString);
   // urlParams.set('progress', progress)
-  window.history.pushState("object or string", '', `index.html?progress=${progress}`);
+  window.history.pushState("object or string", '', `epilogue.html?progress=${progress}`);
 }
 
 var loadingBarDelay = 7000;
