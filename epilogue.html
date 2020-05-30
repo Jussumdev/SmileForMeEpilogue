@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Smile For Today</title>
+
+  <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+  <!-- <link rel="shortcut icon" href="favicon.ico?r=31241" type="image/x-icon" /> -->
+
+  <link rel="stylesheet" type="text/css" href="style/colors.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style/windowBorders.css">
+  <link rel="stylesheet" type="text/css" href="style/overlay.css">
+  <link rel="stylesheet" type="text/css" href="style/thankYouOverlay.css">
+
+  <!-- helpers -->
+  <script src="js/helpers.js"></script>
+  <script src="js/overlay.js"></script>
+  <script src="js/thankYouOverlay.js"></script>
+  <script src="js/periodicLetterBobbing.js"></script>
+
+  <!-- data -->
+  <script src="js/data/emailData.js"></script>
+  <script src="js/data/senderData.js"></script>
+  <script src="js/data/attachmentData.js"></script>
+
+  <script src="js/emailTemplate.js"></script>
+  <script src="js/generateEmails.js"></script>
+
+  <script src="js/mainLoop.js"></script>
+</head>
+
+<body>
+
+  <div class = "screenTextureSizing edgeShadowHighlight"></div>
+  <div class = "screenTextureSizing edgeShadow"></div>
+  <div class = "screenTextureSizing edgeShadowSharp"></div>
+
+  <!-- Static borders -->
+  <div class = "mainContentMargins">
+    <div class = "screenBorder-Outset" style="height:calc(100% - 1em - 0.2cm)">
+      <div class = "screenBorder-Plateau">
+        <div class = "screenBorder-Inset contentShadow">
+        </div>
+      </div>
+    </div>
+    <div class = "floatingWindowText">
+      <p>
+        [ <span id=messagesRemaining></span> ] free PedalMessages (tm) remaining
+      </p>
+    </div>
+  </div>
+  <div class = "screenBackground"></div>
+
+  <div class = "sideContentMargins">
+    <div class = "floatingWindowText">
+      <p>
+        recipients:
+      </p>
+    </div>
+    <div class = "screenBorder-Outset" style="height:calc(100% - 1em - 0.2cm)">
+      <div class = "screenBorder-Plateau">
+        <div class = "screenBorder-Inset">
+          <div class = "sideContentParent contentShadow">
+            <p id = recipientList>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+
+
+  <div class="aboveBorders" style="width:calc(100% - 6px);padding:3px">
+    <div class="windowLabel">
+      <p>
+        PedalMail v.2.12f
+      </p>
+    </div>
+  </div>
+
+  <div class=loadingScreen id=loadingScreen>
+    <div class=loadingScreenContent>
+      <div class=loadingBarParent>
+        <div class=screenBorder-Outset>
+          <div class=screenBorder-Plateau style="background:var(--content-background)">
+            <div class=loadingBarFill>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="loadingBarLabel floatingWindowText">
+        Loading PedalMail...
+      </p>
+    </div>
+    <div class=fadeIn></div>
+  </div>
+
+  <div class = "mainContentParent" id = emailParent>
+    <!-- emails are generated here -->
+    <div class = "emailCloser" id = emailCloser>
+      <p>
+        <span id=newMessage></span>
+      </p>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -258,56 +258,7 @@ a:hover{
 }
 
 
-
-
-
-
-
-.windowBGColor {
-  background-color: var(--windows-background);
-}
-
-.floatingWindowText {
-  pointer-events: all;
-  padding: 0.1cm 0.1cm;
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: var(--floating-window-textbox);
-}
-.floatingWindowText, .floatingWindowText p {
-  color: var(--floating-window-text)
-}
-
-.windowLabel {
-  pointer-events: all;
-  padding: 0.1cm 0.1cm;
-  width: calc(100% - 0.2cm);
-  white-space: nowrap;
-  overflow: hidden;
-  background: var(--window-label);
-}
-.windowLabel p {
-  color: var(--window-label-text);
-}
-.windowLabel:hover {
-  opacity: 0.3;
-}
-
-.contentShadow {
-  box-shadow: inset 0px 20px 20px #400000aa
-}
-
-.screenBackground {
-    z-index: -10;
-  position:fixed;top:0cm;left:0cm;bottom:0cm;right:0cm;
-  background-color: var(--content-background);
-}
-
-.aboveBorders {
-    z-index: 8;
-  padding:0.25cm;
-  position: fixed;
-}
+/* =================================Loading Screen============================= */
 
 @keyframes fallOff {
   0% {
@@ -370,4 +321,73 @@ a:hover{
 }
 .loadingBarLabel {
   text-align: center;
+}
+
+@keyframes disappear {
+  0% {opacity: 1;}
+  20% {opacity: 1;}
+  100% {opacity: 0;}
+}
+.fadeIn {
+    z-index: 100;
+  position:fixed;top:0cm;left:0cm;bottom:0cm;right:0cm;
+  background: black;
+  opacity: 0;
+  animation-name: disappear;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-duration: 1.25s;
+}
+
+
+
+
+
+
+
+
+.windowBGColor {
+  background-color: var(--windows-background);
+}
+
+.floatingWindowText {
+  pointer-events: all;
+  padding: 0.1cm 0.1cm;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: var(--floating-window-textbox);
+}
+.floatingWindowText, .floatingWindowText p {
+  color: var(--floating-window-text)
+}
+
+.windowLabel {
+  pointer-events: all;
+  padding: 0.1cm 0.1cm;
+  width: calc(100% - 0.2cm);
+  white-space: nowrap;
+  overflow: hidden;
+  background: var(--window-label);
+}
+.windowLabel p {
+  color: var(--window-label-text);
+}
+.windowLabel:hover {
+  opacity: 0.3;
+}
+
+.contentShadow {
+  box-shadow: inset 0px 20px 20px #400000aa
+}
+
+.screenBackground {
+    z-index: -10;
+  position:fixed;top:0cm;left:0cm;bottom:0cm;right:0cm;
+  background-color: var(--content-background);
+}
+
+.aboveBorders {
+    z-index: 8;
+  padding:0.25cm;
+  position: fixed;
 }

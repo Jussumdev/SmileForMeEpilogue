@@ -1,0 +1,57 @@
+@import "fonts/mini-wakuwaku/stylesheet.css";
+
+html {
+  height: 100%;
+}
+
+body{
+  background: black;
+  margin: 0px;
+  padding: 15% 25%;
+  overflow-x: hidden;
+}
+@media all and (max-width: 100vh) {
+  body {
+    padding: 10% 10%;
+  }
+}
+
+div {
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  font-family: 'mini-wakuwakuregular';
+  text-shadow: none;
+  color: #999999;
+  font-size: 0.8cm;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  white-space: nowrap;
+}
+a:hover{
+  opacity:30%;
+}
+@media all and (max-width: 100vh) {
+  a {
+    white-space: normal;
+  }
+}
+
+@keyframes opacityIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.opacityIn {
+  animation-name: opacityIn;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+}

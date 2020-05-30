@@ -104,6 +104,13 @@ function toggleMusicWindow() {
   }
 }
 
+function loadLoopingMusic() {
+  var a = document.getElementById('audio');
+  a.setAttribute('src', 'audio/PlatitudesAnniversaryCleanLoop.mp3');
+  a.loop = true;
+  a.play();
+}
+
 function openAttachmentWindow() {
   document.getElementById("popupBG").style.display = "inline";
   document.getElementById("windowMover").style.display = "inline";
@@ -309,8 +316,8 @@ function addLinkPopup() {
                 Platitudes_demo_export_FINAL2.mus
               </p>
             </div>
-            <audio controls loop class="audioplayer">
-              <source src="audio/platitudes.mp3" type="audio/mpeg">
+            <audio controls id=audio class="audioplayer" onended="loadLoopingMusic()">
+              <source src="audio/PlatitudesAnniversary.mp3" type="audio/mpeg">
               <!-- <source src="audiofile.ogg" type="audio/ogg"> -->
               <!-- fallback for non supporting browsers goes here -->
               <p>Your browser does not support HTML5 audio, but you can still
