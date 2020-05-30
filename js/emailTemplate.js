@@ -28,7 +28,7 @@ return `
       </p>
     </div>
     <div class = "emailHeaderImage" onclick = ${onclick} data-imageData = "${profileimgdata}">
-      <img src="images/profiles/small/${profilesrc}"></img>
+      <img src="images/profiles/Small/${profilesrc}"></img>
     </div>
   </div>
   <div class = "emailBody">
