@@ -65,8 +65,10 @@ function addLinkPopup() {
 }
 
 function neutralizeForms() {
-  neutralizeForm(document.getElementById("form1"));
-  neutralizeForm(document.getElementById("form2"));
+  setInterval(function() {
+     neutralizeForm(document.getElementById("form1"));
+     neutralizeForm(document.getElementById("form2"));
+   }, 3000);
 }
 
 function neutralizeForm(el) {
