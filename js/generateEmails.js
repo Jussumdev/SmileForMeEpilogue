@@ -148,8 +148,7 @@ function generateEmailHTML(email) {
   t = t.replace('<playlist>','<a href="https://open.spotify.com/playlist/4U39LZliqZ8ISzBuhQG0n3?si=v8wyJZzVQqiOkiSW3XDtbg" target="_blank">Look at this one!</a>');
   t = t.replace('<zine>','<a href="https://twitter.com/smileformezine" target="_blank">The Smile For Me Zine</a>');
   t = t.replace('<letsplay>','<a href="https://www.youtube.com/watch?v=zTATKZUtKSw" target="_blank">SnapCube - Smile For Me</a>');
-  t = t.replace('<evangelion>','<a href="https://www.youtube.com/watch?v=CWcmBhmFHcY" target="_blank">Get in the Robot Kamal</a>');
-  t = t.replace('<platitudes>','<a onclick="openMusicWindow()">download (platitudes.wav)</a>');
+  t = t.replace('<platitudes>','<a onclick="openMusicWindow()">Platitudes_final_FINAL2.mus</a>');
 
   var emailHTML = fillTemplate(
     name=sender.name,

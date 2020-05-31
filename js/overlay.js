@@ -238,17 +238,18 @@ var composeOpen = false;
 var dict = {};
 
 function positionCenteredElement(name, open, lowestTop, offsetCalc, dt) {
+  var el = document.getElementById(name);
+  if (el==null) {return;}
   if (dict[name+"_top"] == undefined) {dict[name+"_top"] = 100;}
   if (dict[name+"_Y"] == undefined) {dict[name+"_Y"] = 0;}
-  var music = document.getElementById(name);
   var t = open ? 50 : lowestTop;
   dict[name+"_top"] = frameLerp(dict[name+"_top"], t, 0.0001, dt);
   var t2 = open ? -50 : 0;
   dict[name+"_Y"] = frameLerp(dict[name+"_Y"], t2, 0.0001, dt);
   var top = roundDecimals(dict[name+"_top"], 4);
   var transformY = roundDecimals(dict[name+"_Y"], 4);
-  music.style["top"] = `calc(${top}% ${offsetCalc})`;
-  music.style.transform = `translate(-50%,${transformY}%)`;
+  el.style["top"] = `calc(${top}% ${offsetCalc})`;
+  el.style.transform = `translate(-50%,${transformY}%)`;
 }
 
 
@@ -321,7 +322,6 @@ function addLinkPopup() {
             </div>
             <audio controls id=audio class="audioplayer" onended="loadLoopingMusic()">
               <source src="audio/PlatitudesAnniversary.mp3" type="audio/mpeg">
-              <!-- <source src="audiofile.ogg" type="audio/ogg"> -->
               <!-- fallback for non supporting browsers goes here -->
               <p>Your browser does not support HTML5 audio, but you can still
                  <a href="audio/platitudes.mp3">download the music</a> and listen along.</p>
