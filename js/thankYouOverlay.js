@@ -107,5 +107,3 @@ function updateOpacity() {
   }
 
 }
-
-addOnLoad(fadeInThankYou);
