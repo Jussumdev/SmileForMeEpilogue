@@ -34,7 +34,7 @@ function addLinkPopup() {
             We would love to see what you had to say to the characters of The Habitat. Are you comfortable sharing with us the email you sent? It may be anonymously posted.
             <br>
           </p>
-          <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
+          <form id=form1 target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post" onclick="neutralizeForms()">
             <input type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
             <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1">${emailValue}</textarea>
             <input type='text' style='display:none;' name='canShare' value='Consent to Sharing' tabIndex="-1"></textarea>
@@ -46,7 +46,7 @@ function addLinkPopup() {
           <p class=maskOff>
             <br>Or, if you want us to keep it private:
           </p>
-          <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
+          <form id=form2 target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post" onclick="neutralizeForms()">
             <input type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
             <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1">${emailValue}</textarea>
             <input type='text' style='display:none;' name='canShare' value='No Sharing' tabIndex="-1"></textarea>
@@ -64,6 +64,17 @@ function addLinkPopup() {
   a.insertAdjacentHTML("afterend", h);
 }
 
+function neutralizeForms() {
+  neutralizeForm(document.getElementById("form1"));
+  neutralizeForm(document.getElementById("form2"));
+}
+
+function neutralizeForm(el) {
+  el.method = "";
+  el.action = "";
+  el.target = "";
+  el.onclick = "";
+}
 
 var framerate = 60
 
