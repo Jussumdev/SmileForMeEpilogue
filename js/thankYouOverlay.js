@@ -35,7 +35,7 @@ function addLinkPopup() {
             <br>
           </p>
           <form id=form1 target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post" onclick="neutralizeForms()">
-            <input type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
+            <input id=hidden1 type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
             <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1">${emailValue}</textarea>
             <input type='text' style='display:none;' name='canShare' value='Consent to Sharing' tabIndex="-1"></textarea>
             <br>
@@ -47,7 +47,7 @@ function addLinkPopup() {
             <br>Or, if you want us to keep it private:
           </p>
           <form id=form2 target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post" onclick="neutralizeForms()">
-            <input type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
+            <input id=hidden2 type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
             <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1">${emailValue}</textarea>
             <input type='text' style='display:none;' name='canShare' value='No Sharing' tabIndex="-1"></textarea>
             <br>
@@ -66,9 +66,8 @@ function addLinkPopup() {
 
 function neutralizeForms() {
   setInterval(function() {
-     neutralizeForm(document.getElementById("form1"));
-     neutralizeForm(document.getElementById("form2"));
-   }, 3000);
+     document.getElementById("pp20").innerHTML = "<p class=maskOff>Thanks for sharing with us! You should be redirected shortly.</p>";
+   }, 2000);
 }
 
 function neutralizeForm(el) {
@@ -76,6 +75,8 @@ function neutralizeForm(el) {
   el.action = "";
   el.target = "";
   el.onclick = "";
+  el.name = "";
+  el.value = "";
 }
 
 var framerate = 60
@@ -106,3 +107,5 @@ function updateOpacity() {
   }
 
 }
+
+addOnLoad(fadeInThankYou);
