@@ -35,7 +35,7 @@ function addLinkPopup() {
             <br>
           </p>
           <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-            <input type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
+            <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
             <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
             <input type='text' style='display:none;' name='canShare' value='Consent to Sharing' tabIndex="-1"></textarea>
             <br>
@@ -47,7 +47,7 @@ function addLinkPopup() {
             <br>Or, if you want us to keep it private:
           </p>
           <form target="_blank" action="https://getsimpleform.com/messages?form_api_token=595f84ac752f7c4e3cb1dac816f453db" method="post">
-            <input type='hidden' name='redirect_to' value='http:smilefor.today/thankyou.html'></input>
+            <input type='hidden' name='redirect_to' value='https:smilefor.today/thankyou.html'></input>
             <textarea style='display:none;' name='email' value='${emailValue}' tabIndex="-1"></textarea>
             <input type='text' style='display:none;' name='canShare' value='No Sharing' tabIndex="-1"></textarea>
             <br>
